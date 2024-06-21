@@ -1,4 +1,4 @@
-# QwenAgent-GradioInterfaces..
+# QwenAgent-GradioInterfaces
 Alpha; under development. I will be producing, or attempting to produce, some interfaces for the Qwen-Agent framework...
 
 ## Current Work
