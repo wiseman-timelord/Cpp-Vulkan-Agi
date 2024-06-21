@@ -2,7 +2,7 @@
 Project Status: Alpha; under development. I will be producing, or attempting to produce, some awesome interface for the Qwen-Agent framework, that is...
 
 ## Current Work
-- Complete working version, bug free and as intended.
+- Still to make the project complete working version, bug free and as intended.
 - Investigating processing on, gpu and cpu, while load model on system ram.
 
 ## Description:
