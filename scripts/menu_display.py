@@ -1,29 +1,4 @@
-# .\scripts\menu_display.py
 import gradio as gr
-
-def display_main_menu(current_model, current_processor):
-    print("\nMain Menu\n")
-    print(f"1. Model Options\n(CurrentModel: {current_model[:20]})")
-    print(f"2. Processor Options\n(CurrentProcessor: {current_processor})")
-    print("\n----------------------")
-    print("Selection; Choose Options = 1-2, Exit Program = X:")
-
-def display_model_menu(models):
-    print("\nModel Selection:\n")
-    for idx, model in enumerate(models, 1):
-        print(f"{idx}. {model[:20]}...")
-    print("\n----------------------")
-    print("Selection; Choose Options = 1-{0}, Request Models = R, Exit Program = X:".format(len(models)))
-
-def display_processor_menu(processors):
-    print("\nModel Processing:\n")
-    for idx, processor in enumerate(processors, 1):
-        print(f"{idx}. {processor}")
-    print("\n----------------------")
-    print("Selection; Choose Options = 1-{0}, Exit Program = X:".format(len(processors)))
-
-def get_user_selection():
-    return input().strip().lower()
 
 def chatbot_response(agent, tokenizer, device, user_input, chat_history):
     prompt = "You are a helpful assistant."

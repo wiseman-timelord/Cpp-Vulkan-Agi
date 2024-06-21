@@ -1,32 +1,15 @@
-# .\scripts\model_interaction.py
-import os
-import json5
-import requests
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from qwen_agent.agents import Assistant, BasicDocQA
 from qwen_agent.tools.base import BaseTool, register_tool
-from qwen_agent.utils.utils import print_traceback, extract_code
+from qwen_agent.utils.utils import print_traceback
 from jupyter_client import BlockingKernelClient
 import subprocess
 import time
 import uuid
+import os
+import json5
 from typing import Dict, List, Optional, Tuple, Union
-
-OLLAMA_API_URL = "http://localhost:8000/api/tags"  # Ensure this is the correct API endpoint
-
-def get_model_list():
-    response = requests.get(OLLAMA_API_URL)
-    if response.status_code == 200:
-        return response.json()  # Assuming the response is a JSON list of models
-    else:
-        print("Failed to retrieve models from Ollama.")
-        return []
-
-def select_model(models, selection):
-    if selection.isdigit() and 1 <= int(selection) <= len(models):
-        return models[int(selection) - 1]
-    return None
 
 def initialize_model(model_name, device):
     if device == "directml":
@@ -39,7 +22,6 @@ def initialize_model(model_name, device):
         model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map=device)
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         return model, tokenizer, device
-
 
 def create_agent(agent_type, llm_cfg, system_instruction, tools, files=None):
     if agent_type == 'Manager':
