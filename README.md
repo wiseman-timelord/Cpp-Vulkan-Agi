@@ -1,5 +1,5 @@
 # Qwen-Agent_iNTErFaCe
-Project Status: Alpha; under development. I will be producing, or attempting to produce, some awesome interface for the Qwen-Agent framework, that is...
+Project Status: Alpha; under development. I will be producing, or attempting to produce, some awesome interface for the Qwen-Agent framework....
 
 ## Current Work
 - Still to make the project complete working version, bug free and as intended.
