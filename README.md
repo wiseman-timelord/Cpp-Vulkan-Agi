@@ -14,5 +14,19 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - The project will be optimized for 64GB ram and  hence developed on the model Qwen2-56B-6Bit-GGUF. 
 - Code will be tailored towards technology level of AMD4/DirectX_12 level hardware.
 
+### Preview:
+- Standalone Configurator...
+```
+Config Main Menu
+
+1. Model Options
+(CurrentModel: None)
+2. Processor Options
+(CurrentProcessor: None)
+
+----------------------
+Selection; Choose Options = 1-2, Exit Program = X:
+```
+
 ## Research:
 - Are the new AMD optimized system files from AMD, able to be better taken advantage somehow in the scripts.
