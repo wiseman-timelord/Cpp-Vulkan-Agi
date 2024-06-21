@@ -6,9 +6,10 @@ Project Status: Alpha; under development. I will be producing, or attempting to 
 - Investigating processing on, gpu and cpu, while load model on system ram.
 
 ## Description:
-- Qwen-Agent is an agent framework, hence, here will be some interfaces for that framework. 
+- Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
 - The project will be progrogrammed for, AMD/nVidia Gpu via Directml and Intel/Amd, support.
-- The project will be optimized for 64GB ram, hence developed on the model Qwen2-56B-6Bit-GGUF. 
+- The project will be optimized for 64GB ram and  hence developed on the model Qwen2-56B-6Bit-GGUF. 
+- Code will be tailored towards technology level of AMD4/DirectX_12 level hardware.
 
 ## Features:
 - Single-Model Version intended for 1 large model (incomplete).
