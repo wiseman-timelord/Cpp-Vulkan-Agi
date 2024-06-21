@@ -2,8 +2,11 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
+- Now there is less code for menus and handling, Other things can be done.
+- I want to remove non-amd optimizations, streamline scripts, get it working before compatibility.
 - Still to make the project complete working version, bug free and as intended.
 - Investigating processing on, gpu and cpu, while load model on system ram.
+- Are the new AMD optimized system files from AMD, able to be better taken advantage somehow in the scripts.
 
 ## Description:
 - Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
@@ -37,5 +40,4 @@ Selection; Choose Options = 1-2, Exit Program = X:
 5. Run "QwenAgent-Configurator.Bat" to setup the, model file and graphics mode/card and determine cpu types. other options to come.
 6. Run "QwenAgent-LaunchMain.Bat" to start the session. 
 
-## Research:
-- Are the new AMD optimized system files from AMD, able to be better taken advantage somehow in the scripts.
+
