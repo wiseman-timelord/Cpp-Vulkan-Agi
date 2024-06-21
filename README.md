@@ -1,5 +1,5 @@
 # QwenAgent-Interface
-Beta; under development. I will be producing, or attempting to produce, some interfaces for the Qwen-Agent framework...
+Project Status: Alpha; under development. I will be producing, or attempting to produce, some awesome interface for the Qwen-Agent framework, that is...
 
 ## Current Work
 - Researching and downloading of models.
@@ -7,7 +7,10 @@ Beta; under development. I will be producing, or attempting to produce, some int
 - Two Model version.
 
 ## Description:
-- Qwen-Agent is an agent framework, hence, here will be some interfaces for that framework.
+- Qwen-Agent is an agent framework, hence, here will be some interfaces for that framework. 
+- The project will be optimized for, Qwen2-56B-6Bit-GGUF and the new AMD optimized system files from AMD.
+- The project will be progrogrammed for, AMD/nVidia Gpu via Directml and Intel/Amd, support.
+- 
 
 ## Features:
 - Single-Model Version intended for 1 large model (incomplete).
