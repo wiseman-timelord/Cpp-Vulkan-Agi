@@ -30,11 +30,12 @@ Selection; Choose Options = 1-2, Exit Program = X:
 
 ## Instructions:
 - Do not expect the current version to work, its in Alpha stage.
-1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+".
-2. Install the requirements by clicking on "Install_Requirements.Bat".
-3. Load the model you intend to use in ollama, this possibly can be made easier by running "Load_Qwen2_Model.Bat"
-4. Run "QwenAgent-Configurator.Bat" to setup the, model file and graphics mode/card and determine cpu types. other options to come.
-5. Run "QwenAgent-LaunchMain.Bat" to start the session. 
+1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files to the directory you created.
+2. Drop in my scripts directly into "Qwen-Agent-0.0.5+" preserving file structure, and over-writing the "requirements.txt".
+3. Install the requirements by clicking on "Install_Requirements.Bat".
+4. Load the model you intend to use in ollama, this possibly can be made easier by running "Load_Qwen2_Model.Bat"
+5. Run "QwenAgent-Configurator.Bat" to setup the, model file and graphics mode/card and determine cpu types. other options to come.
+6. Run "QwenAgent-LaunchMain.Bat" to start the session. 
 
 ## Research:
 - Are the new AMD optimized system files from AMD, able to be better taken advantage somehow in the scripts.
