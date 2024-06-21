@@ -29,6 +29,7 @@ Selection; Choose Options = 1-2, Exit Program = X:
 ```
 
 ## Instructions:
+- Do not expect the current version to work, its in Alpha stage.
 1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+".
 2. Install the requirements by clicking on "Install_Requirements.Bat".
 3. Load the model you intend to use in ollama, this possibly can be made easier by running "Load_Qwen2_Model.Bat"
