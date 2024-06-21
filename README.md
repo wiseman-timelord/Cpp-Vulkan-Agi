@@ -10,6 +10,6 @@ Alpha; under development. I will be producing, or attempting to produce, some in
 - Qwen-Agent is an agent framework, hence, here will be some interfaces for that framework.
 
 ## Features:
-- Single-Model Version intended for 1 large model (not created yet).
+- Single-Model Version intended for 1 large model (needs testing, bugfix, improvement).
 - Multi-Model version intended for multiple 7b models (incomplete).
-- Two-Model version intended for, 1 57b model and 1 7b code model.
+- Two-Model version intended for, 1 57b model and 1 7b code model (incomplete).
