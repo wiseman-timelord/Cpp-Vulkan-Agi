@@ -2,15 +2,13 @@
 Project Status: Alpha; under development. I will be producing, or attempting to produce, some awesome interface for the Qwen-Agent framework, that is...
 
 ## Current Work
-- Researching and downloading of models.
-- Single Model version will be developed first, context length is an issue, its 1 file, alike making an EA, hence, go with the simpler one first.
-- Two Model version.
+- Complete working version, bug free and as intended.
+- Investigating processing on, gpu and cpu, while load model on system ram.
 
 ## Description:
 - Qwen-Agent is an agent framework, hence, here will be some interfaces for that framework. 
-- The project will be optimized for, Qwen2-56B-6Bit-GGUF 
 - The project will be progrogrammed for, AMD/nVidia Gpu via Directml and Intel/Amd, support.
-- Investigating processing on gpu and cpu while holding model on system ram.
+- The project will be optimized for 64GB ram, hence developed on the model Qwen2-56B-6Bit-GGUF. 
 
 ## Features:
 - Single-Model Version intended for 1 large model (incomplete).
