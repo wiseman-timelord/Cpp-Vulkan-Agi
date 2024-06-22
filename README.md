@@ -2,6 +2,7 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
+- Working further into Configurator, now intended to install and configure, Avx1, Avx2, Avx512, OpenCL, Vulkan; All flavors of AMD.
 - It is not possible to run ollama-python without also running a server. There are many new flavors of "Llama.Cpp", VULKAN!! but also, llvm, kompute, msvc, win-rpc, win-sycl, all of which need researching, and then of course there is OpenBlas. Ensure this is figured out and setup corretly for Qwen2.
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Investigating optimal processing on, gpu and cpu. Q) would AOCL work together with OpenCL, in some kind of hybrid solution, so as to have some kind of enhancement to the OpenCL, seems as its supposed to be slower than DirectML?
