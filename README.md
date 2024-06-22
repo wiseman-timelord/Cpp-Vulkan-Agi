@@ -24,10 +24,10 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Dunno how I am going to show the main program, its a graphical interface. Probably will have to resurrect my website, and get some kind of auto-login thing working so it dont timeout again...
 ```
 ===== Some Impressive Bot Management =======
+
 HUMAN:
 I neez some fags, make a plan, and get me some, so I can
 sit in my chair, and finish my work.
-
 --------------------------------------------
 ROBOT1:
 I am a robot, my prime directive is to go to the shops,
