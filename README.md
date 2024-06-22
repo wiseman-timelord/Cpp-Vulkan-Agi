@@ -2,11 +2,10 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
-- Implement option 1 on configurator menu to be "1. Install Requirments", to install the requirements, then pause, then return to menu. Also remove "Install_Requirements.Bat".
-- Using ollama-python for model handling, in order to take a more direct approach to model handling. Ensure this is setup corretly for Qwen2. Remove "Load_Qwen2_Model.Bat" when done.
+- Using ollama-python for model handling, in order to take a more direct approach to model handling. Ensure this is setup corretly for Qwen2.
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
-- Investigating optimal processing on, gpu and cpu, are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl/AOCL for the graphics, and so produce better combined processing?
+- Investigating optimal processing on, gpu and cpu. Q) would AOCL work together with OpenCL, in some kind of hybrid solution, so as to have some kind of enhancement to the OpenCL, seems as its supposed to be slower than DirectML?
 - After code context begins to become an issue, then an assessment of the scripts, and where the most lines can be saved, by taking the functions then, optimize and make more dynamic and compacted, so as to generally take less lines, to make the context back to safe level. 
 - Ensure project is complete working version, bug free and as intended.
 - Its AMD only, but will possibly feature intel/nvidia later, at some point after completion.
