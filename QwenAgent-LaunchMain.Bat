@@ -1,3 +1,10 @@
+@echo off
+
+:: Initialization
+cd /d "%~dp0"
+
+:: Launch Script
 python main_launch.py
 
-pause
+:: Debug
+rem pause

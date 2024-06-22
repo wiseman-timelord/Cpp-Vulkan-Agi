@@ -1,93 +1,64 @@
 # .\main_config.py
 
 import json
-import requests
+import os
 
-def get_model_list():
-    response = requests.get("http://localhost:8000/api/tags")
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print("Failed to retrieve models from Ollama.")
-        return []
+def display_main_menu(current_model, graphics_method, gpu_memory_percentage):
+    os.system('cls')
+    print("\n=================( Main Configurator Menu )==============\n\n")
+    print(f"1. Model Location\n(CurrentModel: {shorten_path(current_model, 35)})\n")
+    print(f"2. Graphics Method\n(CurrentMethod: {graphics_method})\n")
+    print(f"3. GPU Memory Usage\n(CurrentUsage: {gpu_memory_percentage}%)\n")
+    print("\n---------------------------------------------------------")
+    print("Selection; Choose Options = 1-3, Exit & Save = X:")
 
-def select_model(models, selection):
-    if selection.isdigit() and 1 <= int(selection) <= len(models):
-        return models[int(selection) - 1]
-    return None
-
-def display_main_menu(current_model, current_processor, gpu_memory_percentage):
-    print("\nMain Menu\n")
-    print(f"1. Model Options\n(CurrentModel: {current_model[:20]})")
-    print(f"2. Processor Options\n(CurrentProcessor: {current_processor})")
-    print(f"3. GPU Memory Usage\n(CurrentUsage: {gpu_memory_percentage}%)")
-    print("\n----------------------")
-    print("Selection; Choose Options = 1-3, Exit Program = X:")
-
-def display_model_menu(models):
-    print("\nModel Selection:\n")
-    for idx, model in enumerate(models, 1):
-        print(f"{idx}. {model[:20]}...")
-    print("\n----------------------")
-    print("Selection; Choose Options = 1-{0}, Request Models = R, Exit Program = X:".format(len(models)))
-
-def display_processor_menu(processors):
-    print("\nProcessor Selection:\n")
-    for idx, processor in enumerate(processors, 1):
-        print(f"{idx}. {processor}")
-    print("\n----------------------")
-    print("Selection; Choose Options = 1-{0}, Exit Program = X:".format(len(processors)))
+def shorten_path(path, length):
+    if len(path) > length:
+        return "..." + path[-(length-3):]
+    return path
 
 def get_user_selection():
     return input().strip().lower()
 
-def main_config():
-    processors = ["CPU AMD (AVX2)", "GPU AMD (OpenCL)", "GPU AMD (DirectML)"]
-    current_model = "None"
-    current_processor = "None"
-    gpu_memory_percentage = 50
-
-    config = {
-        "current_model": current_model,
-        "current_processor": current_processor,
-        "gpu_memory_percentage": gpu_memory_percentage
+def load_config():
+    default_config = {
+        "current_model": ".\\ModelFolder\\ModelFile.GGUF",
+        "graphics_method": "OpenCL",
+        "gpu_memory_percentage": 50
     }
+    
+    try:
+        with open('./data/config_general.json', 'r') as config_file:
+            config = json.load(config_file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        config = default_config
+    
+    # Ensure all necessary keys are present, use default values if not
+    for key in default_config:
+        if key not in config or not config[key]:
+            config[key] = default_config[key]
+    
+    return config
+
+def main_config():
+    config = load_config()
+    
+    current_model = config["current_model"]
+    graphics_method = config["graphics_method"]
+    gpu_memory_percentage = config["gpu_memory_percentage"]
 
     while True:
-        display_main_menu(current_model, current_processor, gpu_memory_percentage)
+        display_main_menu(current_model, graphics_method, gpu_memory_percentage)
         main_selection = get_user_selection()
 
         if main_selection == '1':
-            models = get_model_list()
-            while not current_model:
-                display_model_menu(models)
-                model_selection = get_user_selection()
-
-                if model_selection == 'r':
-                    models = get_model_list()
-                elif model_selection == 'x':
-                    break
-                else:
-                    current_model = select_model(models, model_selection)
-                    if not current_model:
-                        print("Invalid selection. Please try again.")
-                    else:
-                        config["current_model"] = current_model
+            current_model = input("Enter the full path to the model file: ").strip()
+            config["current_model"] = current_model
 
         elif main_selection == '2':
-            while not current_processor:
-                display_processor_menu(processors)
-                processor_selection = get_user_selection()
+            graphics_method = "DirectML" if graphics_method == "OpenCL" else "OpenCL"
+            config["graphics_method"] = graphics_method
 
-                if processor_selection == 'x':
-                    break
-                else:
-                    if processor_selection.isdigit() and 1 <= int(processor_selection) <= len(processors):
-                        current_processor = processors[int(processor_selection) - 1]
-                        config["current_processor"] = current_processor
-                    else:
-                        print("Invalid selection. Please try again.")
-        
         elif main_selection == '3':
             new_gpu_memory_percentage = input("Enter new GPU memory usage percentage (10-100): ").strip()
             if new_gpu_memory_percentage.isdigit() and 10 <= int(new_gpu_memory_percentage) <= 100:

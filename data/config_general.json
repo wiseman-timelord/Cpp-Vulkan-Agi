@@ -1,9 +1,1 @@
-{
-    "current_model": "None",
-    "current_processor": "None",
-    "processors": ["CPU AMD (AVX2)", "GPU AMD (OpenCL)", "GPU AMD (DirectML)"],
-    "gpu_memory_percentage": 50,
-    "ollama_status_url": "http://localhost:8000/status",
-    "ollama_start_command": "ollama start",
-    "ollama_load_model_command": "ollama load_model"
-}
+{"current_model": "E:\\AiModels\\mradermacher\\Qwen2-57B-A14B-GGUF\\Qwen2-57B-A14B.Q6_K.gguf", "graphics_method": "DirectML", "gpu_memory_percentage": 66}
