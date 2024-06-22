@@ -7,7 +7,8 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
 - Investigating optimal processing on, gpu and cpu, are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl/AOCL for the graphics, and so produce better combined processing?
-- After code context begins to become an issue, then optimize functions to be mode, optimized and dynamic and compacted, to make the context back to safe level. Complete working version, bug free and as intended.
+- After code context begins to become an issue, then an assessment of the scripts, and where the most lines can be saved, by taking the functions then, optimize and make more dynamic and compacted, so as to generally take less lines, to make the context back to safe level. 
+- Ensure project is complete working version, bug free and as intended.
 
 ## Description:
 - Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
