@@ -7,8 +7,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
 - Still to make the project complete working version, bug free and as intended.
-- Investigating processing on, gpu and cpu, while load model on system ram.
-- Are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl/AOCL for the graphics, and so produce better combined processing?
+- Investigating optimal processing on, gpu and cpu, are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl/AOCL for the graphics, and so produce better combined processing?
 
 
 ## Description:
