@@ -1,6 +1,1 @@
-{
-    "current_model": "E:\\AiModels\\mradermacher\\Qwen2-57B-A14B-GGUF\\Qwen2-57B-A14B.Q6_K.gguf",
-    "graphics_method": "DirectML",
-    "gpu_memory_percentage": 66,
-    "requirement_update": "Never"
-}
+{"current_model": ".\\ModelFolder\\ModelFile.GGUF", "cpp_binary_path": ".\\data\\llama-b3197-bin-win-openblas-x64\\llama-cli.exe", "gpu_memory_percentage": 50, "requirement_update": "2024/06/22"}

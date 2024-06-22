@@ -1,21 +1,80 @@
-import json
-import os
-import subprocess
-from datetime import datetime
-import requests
-import zipfile
-import shutil
+# .\config_general.py
 
-def display_main_menu(current_model, cpp_binary_used, gpu_memory_percentage, requirement_update):
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("\n=================( Main Configurator Menu )==============\n\n")
-    print(f"1. Install Requirements\n(Last Updated: {requirement_update})\n")
-    print(f"2. Install Llama Binaries\n(BinariesVersion: b3197)\n")
-    print(f"3. Model Location\n(CurrentModel: {shorten_path(current_model, 35)})\n")
-    print(f"4. Processing Method\n(CurrentMethod: {cpp_binary_used})\n")
-    print(f"5. GPU Memory Usage\n(CurrentUsage: {gpu_memory_percentage}%)\n")
-    print("\n---------------------------------------------------------")
-    print("Selection; Choose Options = 1-5, Exit & Save = X:")
+import json, time, os, subprocess, requests, shutil, zipfile
+from datetime import datetime
+from tqdm import tqdm
+
+def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, requirement_update, config):
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        current_method_display = os.path.basename(os.path.dirname(cpp_binary_path))
+        print("\n=================( Main Configurator Menu )==============\n")
+        print("\n                  1. Install Requirements")
+        print(f"                        ({requirement_update})")
+        print("\n                 2. Install Llama Binaries")
+        print("                          (b3197)")
+        print("\n                   3. Processing Method")
+        print(f"             ({current_method_display})")
+        print("\n                   4. GPU Memory Usage")
+        print(f"                           ({gpu_memory_percentage}%)")
+        print("\n                  5. GGUF Model Location")
+        print(f"              ({shorten_path(current_model, 35)})")
+        print("\n\n---------------------------------------------------------")
+        print("Selection; Choose Options = 1-5, Exit & Save = X:", end=' ')
+
+        main_selection = get_user_selection()
+
+        if main_selection == '1':
+            new_update_date = install_requirements()
+            if new_update_date:
+                requirement_update = new_update_date
+                config["requirement_update"] = requirement_update
+                time.sleep(2)
+
+        elif main_selection == '2':
+            install_llama_binaries()
+            time.sleep(2)
+
+        elif main_selection == '3':
+            cpp_binary_path = toggle_processing_method(config["cpp_binary_path"])
+            config["cpp_binary_path"] = cpp_binary_path
+
+        elif main_selection == '4':
+            new_gpu_memory_percentage = input("Enter new GPU memory usage percentage (10-100): ").strip()
+            if new_gpu_memory_percentage.isdigit() and 10 <= int(new_gpu_memory_percentage) <= 100:
+                gpu_memory_percentage = int(new_gpu_memory_percentage)
+                config["gpu_memory_percentage"] = gpu_memory_percentage
+                time.sleep(1)
+            else:
+                print("Invalid percentage. Please try again.")
+                time.sleep(2)
+
+        elif main_selection == '5':
+            current_model = input("Enter the full path to the model file: ").strip()
+            config["current_model"] = current_model
+            time.sleep(2)
+
+        elif main_selection == 'x':
+            print("Exiting configuration setup.")
+            time.sleep(2)
+            break
+
+    with open('.\\data\\config_general.json', 'w') as config_file:
+        json.dump(config, config_file)
+
+def toggle_processing_method(current_cpp_binary_path):
+    cpp_binaries = [
+        ".\\data\\llama-b3197-bin-win-avx-x64\\llama-cli.exe",
+        ".\\data\\llama-b3197-bin-win-avx2-x64\\llama-cli.exe",
+        ".\\data\\llama-b3197-bin-win-avx512-x64\\llama-cli.exe",
+        ".\\data\\llama-b3197-bin-win-openblas-x64\\llama-cli.exe",
+        ".\\data\\llama-b3197-bin-win-vulkan-x64\\llama-cli.exe"
+    ]
+    
+    current_index = cpp_binaries.index(current_cpp_binary_path)
+    new_index = (current_index + 1) % len(cpp_binaries)
+    
+    return cpp_binaries[new_index]
 
 def shorten_path(path, length):
     if len(path) > length:
@@ -28,7 +87,7 @@ def get_user_selection():
 def load_config():
     default_config = {
         "current_model": ".\\ModelFolder\\ModelFile.GGUF",
-        "cpp_binary_used": "OpenBLAS",
+        "cpp_binary_path": ".\\data\\llama-b3197-bin-win-openblas-x64\\llama-cli.exe",
         "gpu_memory_percentage": 50,
         "requirement_update": "Never"
     }
@@ -59,21 +118,31 @@ def install_requirements():
     result = subprocess.run(command)
     if result.returncode == 0:
         print("Requirements installed successfully.")
-        return datetime.now().strftime("%Y/%m/%d")
+        update_date = datetime.now().strftime("%Y/%m/%d")
+        return update_date
     else:
         print("Failed to install some requirements.")
+        input("Review the error, then press Enter...")
         return None
-    input("Press Enter to return to the main menu...")
 
 def download_and_extract(url, extract_to):
     local_filename = url.split('/')[-1]
     local_filepath = os.path.join('.\\cache', local_filename)
     
-    with requests.get(url, stream=True) as r:
-        r.raise_for_status()
-        with open(local_filepath, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                f.write(chunk)
+    # Download file with progress bar
+    response = requests.get(url, stream=True)
+    total_size = int(response.headers.get('content-length', 0))
+    block_size = 1024
+    with open(local_filepath, 'wb') as f, tqdm(
+            desc=local_filename,
+            total=total_size,
+            unit='iB',
+            unit_scale=True,
+            unit_divisor=1024,
+    ) as bar:
+        for data in response.iter_content(block_size):
+            f.write(data)
+            bar.update(len(data))
     
     with zipfile.ZipFile(local_filepath, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
@@ -95,9 +164,17 @@ def install_llama_binaries():
     ]
 
     for url, dest in zip(urls, destinations):
+        binary_path = os.path.join(dest, "llama-cli.exe")
+        if os.path.exists(binary_path):
+            print(f"Binary already exists at {binary_path}, skipping download.")
+            continue
         print(f"Downloading and extracting {url} to {dest}...")
         os.makedirs(dest, exist_ok=True)
-        download_and_extract(url, dest)
+        try:
+            download_and_extract(url, dest)
+        except Exception as e:
+            print(f"Failed to download or extract {url}. Reason: {e}")
+            input("Review the error, then press Enter to continue...")
     
     # Clean up cache directory
     for filename in os.listdir('.\\cache'):
@@ -111,58 +188,17 @@ def install_llama_binaries():
             except Exception as e:
                 print(f'Failed to delete {file_path}. Reason: {e}')
 
-    input("Llama binaries installed successfully. Press Enter to return to the main menu...")
+    print("Llama binaries installed successfully.")
 
 def main_config():
     config = load_config()
     
     current_model = config["current_model"]
-    cpp_binary_used = config["cpp_binary_used"]
+    cpp_binary_path = config["cpp_binary_path"]
     gpu_memory_percentage = config["gpu_memory_percentage"]
     requirement_update = config["requirement_update"]
 
-    while True:
-        display_main_menu(current_model, cpp_binary_used, gpu_memory_percentage, requirement_update)
-        main_selection = get_user_selection()
-
-        if main_selection == '1':
-            new_update_date = install_requirements()
-            if new_update_date:
-                requirement_update = new_update_date
-                config["requirement_update"] = requirement_update
-
-        elif main_selection == '2':
-            install_llama_binaries()
-
-        elif main_selection == '3':
-            current_model = input("Enter the full path to the model file: ").strip()
-            config["current_model"] = current_model
-
-        elif main_selection == '4':
-            cpp_binaries = ["AVX", "AVX2", "AVX512", "OpenBLAS", "Vulkan"]
-            for i, binary in enumerate(cpp_binaries, start=1):
-                print(f"{i}. {binary}")
-            choice = int(input("Select the binary option (1-5): ").strip())
-            if 1 <= choice <= 5:
-                cpp_binary_used = cpp_binaries[choice - 1]
-                config["cpp_binary_used"] = cpp_binary_used
-            else:
-                print("Invalid selection. Please try again.")
-
-        elif main_selection == '5':
-            new_gpu_memory_percentage = input("Enter new GPU memory usage percentage (10-100): ").strip()
-            if new_gpu_memory_percentage.isdigit() and 10 <= int(new_gpu_memory_percentage) <= 100:
-                gpu_memory_percentage = int(new_gpu_memory_percentage)
-                config["gpu_memory_percentage"] = gpu_memory_percentage
-            else:
-                print("Invalid percentage. Please try again.")
-
-        elif main_selection == 'x':
-            print("Exiting configuration setup.")
-            break
-
-    with open('.\\data\\config_general.json', 'w') as config_file:
-        json.dump(config, config_file)
+    display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, requirement_update, config)
 
 if __name__ == "__main__":
     main_config()
