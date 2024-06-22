@@ -57,13 +57,13 @@ there are no fags at the shop.
                           (b3197)
 
                    3. Processing Method
-             (llama-b3197-bin-win-vulkan-x64)
+             (llama-b3197-bin-win-openblas-x64)
 
                    4. GPU Memory Usage
-                           (50%)
+                           (66%)
 
-                  5. GGUF Model Location
-              (...Qwen2-7B-GGUF\Qwen2-7B.Q6_K.gguf)
+                  5. GGUF Model Used
+                    (Qwen2-7B.Q6_K)
 
 
 ---------------------------------------------------------
