@@ -3,8 +3,8 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 
 ### Current Work
 
-- Now there is less code for menus and handling, Other things can be done.
-- Model Handling should be done directly through my scripts, less back and forth.
+- Now there is less code for menus and handling, Other things can be done; Model Handling should be done directly through my scripts and required libraries, as are most effective, we do not want to have to use servers due to the, priority of the, back and forth.
+- We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
 - Still to make the project complete working version, bug free and as intended.
 - Investigating processing on, gpu and cpu, while load model on system ram.
@@ -15,7 +15,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
 
 ### Features:
-- Its AMD only, will feature better compatibility later.
+- Its AMD only, will feature better compatibility later after completion.
 - Pre-gradio interface for configuration of models through dynamic menu, before main.
 - The project will be progrogrammed for, AMD/nVidia Gpu via Directml and Intel/Amd, support.
 - The project will be optimized for 64GB ram and  hence developed on the model Qwen2-56B-6Bit-GGUF. 
