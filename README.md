@@ -2,7 +2,7 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
-
+- Implement option 1 on configurator menu to be "1. Install Requirments", to install the requirements, then pause, then return to menu.
 - Using ollama-python for model handling, in order to take a more direct approach to model handling.
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
