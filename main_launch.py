@@ -2,7 +2,8 @@
 
 import json
 from scripts.menu_display import launch_gradio_interface
-from scripts.model_interaction import initialize_model, setup_agents
+from scripts.model_interaction import initialize_model
+from scripts.agent_manager import setup_agents
 
 def main():
     # Load configuration from JSON
@@ -24,7 +25,6 @@ def main():
     model, tokenizer, device = initialize_model(current_model, device)
     agents = setup_agents(current_model, device)
     launch_gradio_interface(agents, tokenizer, device)
-
 
 if __name__ == "__main__":
     main()
