@@ -33,6 +33,10 @@ and buy 10 fags.
 ROBOT2:
 I am designing new hair for ROBOT1, so it can blend-in
 to the humans while at the shop.
+----------------------------------------
+ROBOT3:
+I am making backup plan for growing tobacco, in case
+there are no fags at the shop.
 
 
 ```
