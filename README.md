@@ -6,7 +6,8 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - I want to remove non-amd optimizations, streamline scripts, get it working before compatibility.
 - Still to make the project complete working version, bug free and as intended.
 - Investigating processing on, gpu and cpu, while load model on system ram.
-- Are the new AMD optimized system files from AMD, able to be better taken advantage somehow in the scripts.
+- Are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with opencl for the graphics, and so produce better combined processing?
+
 
 ## Description:
 - Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
