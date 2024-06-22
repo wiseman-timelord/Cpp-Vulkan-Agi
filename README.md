@@ -16,7 +16,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 
 ### Features:
 - The project will be aiming towards AMD Gpu via choice of, Directml or OpenCL.
-- The project will be optimized for 64GB ram, hence developed on the model Qwen2-56B-6Bit-GGUF. 
+- The project will be optimized for 64GB ram, hence developed on Qwen2 GGUF models 7B-56B. 
 - Configuration of models through Standalone Configrator Tool for pre-launch json configuration.
 - Will be tailoed towards AMD, Artic Islands GPU and Matisse CPU, compatible hardware.
 
