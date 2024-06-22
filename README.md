@@ -44,25 +44,26 @@ there are no fags at the shop.
 
 
 ```
-- Standalone Configurator...
+- Standalone Configurator looks the part now...
 ```
+
 =================( Main Configurator Menu )==============
 
 
-1. Install Requirements
-(Last Updated: Never)
+                  1. Install Requirements
+                        (2024/06/22)
 
-2. Install Llama Binaries
-(BinariesVersion: b3197)
+                 2. Install Llama Binaries
+                          (b3197)
 
-3. Model Location
-(CurrentModel: ...4B-GGUF\Qwen2-57B-A14B.Q6_K.gguf)
+                   3. Processing Method
+             (llama-b3197-bin-win-openblas-x64)
 
-4. Processing Method
-(CurrentMethod: Vulkan)
+                   4. GPU Memory Usage
+                           (50%)
 
-5. GPU Memory Usage
-(CurrentUsage: 66%)
+                  5. GGUF Model Location
+              (.\ModelFolder\ModelFile.GGUF)
 
 
 ---------------------------------------------------------
