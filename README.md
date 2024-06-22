@@ -4,7 +4,6 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 ### Current Work
 - Removing, nVidia and Intel, support, steamlining as much as possible, for completion.
 - Now there is less code for menus and handling, Other things can be done.
-- I want to remove non-amd optimizations, streamline scripts, get it working before compatibility.
 - Still to make the project complete working version, bug free and as intended.
 - Investigating processing on, gpu and cpu, while load model on system ram.
 - Are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl for the graphics, and so produce better combined processing? or even just better than directml for the cpu?
