@@ -32,7 +32,7 @@ about how life is passing by.
 --------------------------------------------
 ROBOT1:
 I am a robot, my prime directive is to go to the shops,
-and buy 10 fags, I must aquire a disguise.
+and buy 10 fags, but first I must aquire a disguise.
 -----------------------------------------
 ROBOT2:
 I am designing new hair and beard for ROBOT1, so it can blend-in
