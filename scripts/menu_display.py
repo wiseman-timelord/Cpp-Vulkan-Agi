@@ -1,3 +1,5 @@
+# .\scripts\menu-display.py
+
 import gradio as gr
 
 def chatbot_response(agent, tokenizer, device, user_input, chat_history):

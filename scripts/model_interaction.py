@@ -1,3 +1,5 @@
+# .\model_interaction.py
+
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from qwen_agent.agents import Assistant, BasicDocQA
@@ -19,7 +21,8 @@ def initialize_model(model_name, device):
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         return model, tokenizer, dml
     else:
-        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map=device)
+        # Assuming AVX2 optimizations are utilized by default on the CPU
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto")
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         return model, tokenizer, device
 
@@ -84,7 +87,7 @@ def register_tools():
             )
             
             # Wait for the connection file to be written
-            while not os.isfile(connection_file):
+            while not os.path.isfile(connection_file):
                 time.sleep(0.1)
             
             with open(connection_file, 'r') as fp:

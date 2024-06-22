@@ -18,14 +18,13 @@ def main():
 
     if "GPU AMD" in current_processor:
         device = "directml"
-    elif "GPU NVIDIA" in current_processor:
-        device = "cuda"
     else:
         device = "cpu"
 
     model, tokenizer, device = initialize_model(current_model, device)
     agents = setup_agents(current_model, device)
     launch_gradio_interface(agents, tokenizer, device)
+
 
 if __name__ == "__main__":
     main()
