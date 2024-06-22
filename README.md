@@ -23,17 +23,21 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 ### Preview:
 - Standalone Configurator (needs updating for new configuration of functions)...
 ```
-Configurator Main Menu
+=================( Main Configurator Menu )==============
 
-1. Model Options
-(CurrentModel: None)
-2. Processor Options
-(CurrentProcessor: None)
+
+1. Model Location
+(CurrentModel: ...4B-GGUF\Qwen2-57B-A14B.Q6_K.gguf)
+
+2. Graphics Method
+(CurrentMethod: DirectML)
+
 3. GPU Memory Usage
-(CurrentUsage: 50%)
+(CurrentUsage: 66%)
 
-----------------------
-Selection; Choose Options = 1-3, Exit Program = X:
+
+---------------------------------------------------------
+Selection; Choose Options = 1-3, Exit & Save = X:
 
 ```
 
