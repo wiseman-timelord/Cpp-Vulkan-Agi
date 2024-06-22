@@ -26,18 +26,21 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 =================( Main Configurator Menu )==============
 
 
-1. Model Location
+1. Install Requirements
+(Last Updated: Never)
+
+2. Model Location
 (CurrentModel: ...4B-GGUF\Qwen2-57B-A14B.Q6_K.gguf)
 
-2. Graphics Method
+3. Graphics Method
 (CurrentMethod: DirectML)
 
-3. GPU Memory Usage
+4. GPU Memory Usage
 (CurrentUsage: 66%)
 
 
 ---------------------------------------------------------
-Selection; Choose Options = 1-3, Exit & Save = X:
+Selection; Choose Options = 1-4, Exit & Save = X:
 
 ```
 
