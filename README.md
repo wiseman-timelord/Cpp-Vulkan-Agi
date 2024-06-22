@@ -4,6 +4,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 ### Current Work
 - Removing, nVidia and Intel, support, steamlining as much as possible, for completion.
 - Now there is less code for menus and handling, Other things can be done.
+- Model Handling should be done directly through my scripts, less back and forth.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
 - Still to make the project complete working version, bug free and as intended.
 - Investigating processing on, gpu and cpu, while load model on system ram.
