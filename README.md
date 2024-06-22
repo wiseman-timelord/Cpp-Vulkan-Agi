@@ -9,6 +9,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - After code context begins to become an issue, then an assessment of the scripts, and where the most lines can be saved, by taking the functions then, optimize and make more dynamic and compacted, so as to generally take less lines, to make the context back to safe level. 
 - Ensure project is complete working version, bug free and as intended.
 - Its AMD only, but will possibly feature intel/nvidia later, at some point after completion.
+- a youtube demonstration video, to gain interest and guide people.
 
 ## Description:
 - Qwen-Agent is an agent framework, hence here is my drop in advanced interface for Qwen-Agent. 
@@ -20,7 +21,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Will be tailoed towards AMD, Artic Islands GPU and Matisse CPU, compatible hardware.
 
 ### Preview:
-- Dunno how I am going to show the main program, its a graphical interface. Probably will have to resurrect my website, and get some kind of auto-login thing working so it dont timeout again...
+- Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
 ```
 ===== Some Impressive Bot Management =======
 
