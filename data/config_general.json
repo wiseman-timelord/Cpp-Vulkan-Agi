@@ -1,1 +1,6 @@
-{"current_model": "E:\\AiModels\\mradermacher\\Qwen2-57B-A14B-GGUF\\Qwen2-57B-A14B.Q6_K.gguf", "graphics_method": "DirectML", "gpu_memory_percentage": 66}
+{
+    "current_model": "E:\\AiModels\\mradermacher\\Qwen2-57B-A14B-GGUF\\Qwen2-57B-A14B.Q6_K.gguf",
+    "graphics_method": "DirectML",
+    "gpu_memory_percentage": 66,
+    "requirement_update": "Never"
+}
