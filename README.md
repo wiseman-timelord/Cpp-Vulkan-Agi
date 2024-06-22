@@ -35,7 +35,7 @@ Selection; Choose Options = 1-2, Exit Program = X:
 ```
 
 ## Instructions:
-- Do not expect the current version to work, its in Alpha stage.
+- Releases are considered non-working, but are produced to save versions of code for later, as idea hopping during alpha. Do not expect the current version to work, its in Alpha stage.
 1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files to the directory you created.
 2. Drop in my scripts directly into "Qwen-Agent-0.0.5+" preserving file structure, and over-writing the "requirements.txt".
 3. Install the requirements by clicking on "Install_Requirements.Bat", there will be some new library requirements now.
