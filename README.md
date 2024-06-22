@@ -52,18 +52,21 @@ there are no fags at the shop.
 1. Install Requirements
 (Last Updated: Never)
 
-2. Model Location
+2. Install Llama Binaries
+(BinariesVersion: b3197)
+
+3. Model Location
 (CurrentModel: ...4B-GGUF\Qwen2-57B-A14B.Q6_K.gguf)
 
-3. Graphics Method
-(CurrentMethod: DirectML)
+4. Processing Method
+(CurrentMethod: Vulkan)
 
-4. GPU Memory Usage
+5. GPU Memory Usage
 (CurrentUsage: 66%)
 
 
 ---------------------------------------------------------
-Selection; Choose Options = 1-4, Exit & Save = X:
+Selection; Choose Options = 1-5, Exit & Save = X:
 
 ```
 
