@@ -3,34 +3,38 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 
 ### Current Work
 
-- Now there is less code for menus and handling, Other things can be done; Model Handling should be done directly through my scripts and required libraries, as are most effective, we do not want to have to use servers due to the, priority of the, back and forth.
+- Using ollama-python for model handling, in order to take a more direct approach to model handling.
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
 - Investigating optimal processing on, gpu and cpu, are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl/AOCL for the graphics, and so produce better combined processing?
 - After code context begins to become an issue, then an assessment of the scripts, and where the most lines can be saved, by taking the functions then, optimize and make more dynamic and compacted, so as to generally take less lines, to make the context back to safe level. 
 - Ensure project is complete working version, bug free and as intended.
+- Its AMD only, but will possibly feature intel/nvidia later, at some point after completion.
 
 ## Description:
 - Qwen-Agent is an agent framework, hence here is my drop in advanced interface for Qwen-Agent. 
 
 ### Features:
-- The project will be progrogrammed for, AMD Gpu via Directml/OpenCL and Amd Cpu via AOCL/AVX2.
-- Its AMD only, but will possibly feature intel/nvidia later, at some point after completion.
+- The project will be aiming towards AMD Gpu via choice of, Directml or OpenCL.
 - The project will be optimized for 64GB ram, hence developed on the model Qwen2-56B-6Bit-GGUF. 
 - Configuration of models through Standalone Configrator Tool for pre-launch json configuration.
+- Will be tailoed towards AMD, Artic Islands GPU and Matisse CPU, compatible hardware.
 
 ### Preview:
 - Standalone Configurator (needs updating for new configuration of functions)...
 ```
-Config Main Menu
+Configurator Main Menu
 
 1. Model Options
 (CurrentModel: None)
 2. Processor Options
 (CurrentProcessor: None)
+3. GPU Memory Usage
+(CurrentUsage: 50%)
 
 ----------------------
-Selection; Choose Options = 1-2, Exit Program = X:
+Selection; Choose Options = 1-3, Exit Program = X:
+
 ```
 
 ## Instructions:
