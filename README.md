@@ -11,14 +11,13 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Ensure project is complete working version, bug free and as intended.
 
 ## Description:
-- Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
+- Qwen-Agent is an agent framework, hence here is my drop in advanced interface for Qwen-Agent. 
 
 ### Features:
-- Its AMD only, will feature better compatibility later after completion.
-- Pre-gradio interface for configuration of models through dynamic menu, before main.
-- The project will be progrogrammed for, AMD/nVidia Gpu via Directml and Intel/Amd, support.
-- The project will be optimized for 64GB ram and  hence developed on the model Qwen2-56B-6Bit-GGUF. 
-- Code will be tailored towards technology level of AMD4/DirectX_12 level hardware.
+- The project will be progrogrammed for, AMD Gpu via Directml/OpenCL and Amd Cpu via AOCL/AVX2.
+- Its AMD only, but will possibly feature intel/nvidia later, at some point after completion.
+- The project will be optimized for 64GB ram, hence developed on the model Qwen2-56B-6Bit-GGUF. 
+- Configuration of models through Standalone Configrator Tool for pre-launch json configuration.
 
 ### Preview:
 - Standalone Configurator (needs updating for new configuration of functions)...
