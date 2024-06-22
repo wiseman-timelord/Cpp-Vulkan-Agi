@@ -2,6 +2,7 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
+- Removing, nVidia and Intel, support, steamlining as much as possible, for completion.
 - Now there is less code for menus and handling, Other things can be done.
 - I want to remove non-amd optimizations, streamline scripts, get it working before compatibility.
 - Still to make the project complete working version, bug free and as intended.
