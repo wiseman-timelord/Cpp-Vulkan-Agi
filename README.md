@@ -27,7 +27,8 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 
 HUMAN:
 I neez some fags, make a plan, and get me some, so I can
-sit in my chair, and finish my work.
+sit in my chair, and finish my project without thinking
+about how life is passing by.
 --------------------------------------------
 ROBOT1:
 I am a robot, my prime directive is to go to the shops,
