@@ -15,10 +15,10 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Qwen-Agent is an agent framework, hence here is my drop in advanced interface for Qwen-Agent. 
 
 ### Features:
-- The project will be aiming towards AMD Gpu via choice of, Directml or OpenCL.
-- Developed for System with 64GB System and 8GB Graphics, hence, Qwen2 GGUF models, 56B and 7B. 
-- Startup configuration through Standalone Configurator Tool for pre-launch json configuration.
-- Will be tailoed towards AMD, Artic Islands GPU and Matisse CPU, compatible hardware.
+- Optional Vulkan Llama.Cpp, twice as fast as OpenBlas (the OpenCL version), and it works on nVidia.
+- Developed for, Matisse CPU with 64GB and 8GB Artic Islands GPU, aiming for Qwen2 57B GGUF models, with GPU layers. 
+- Requirement/Llama.Cpp Install & Startup configuration, through Standalone Configurator Tool for pre-launch.
+
 
 ### Preview:
 - Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
