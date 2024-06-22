@@ -31,8 +31,8 @@ I am a robot, my prime directive is to go to the shops,
 and buy 10 fags.
 -----------------------------------------
 ROBOT2:
-I am designing new hair for ROBOT1, so it can blend-in
-to the humans while at the shop.
+I am designing new hair and beard for ROBOT1, so it can blend-in
+with the humans.
 ----------------------------------------
 ROBOT3:
 I am making backup plan for growing tobacco, in case
