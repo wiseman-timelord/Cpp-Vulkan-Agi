@@ -3,7 +3,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 
 ### Current Work
 - Implement option 1 on configurator menu to be "1. Install Requirments", to install the requirements, then pause, then return to menu. Also remove "Install_Requirements.Bat".
-- Using ollama-python for model handling, in order to take a more direct approach to model handling. Ensure this is setup corretly for Qwen2.
+- Using ollama-python for model handling, in order to take a more direct approach to model handling. Ensure this is setup corretly for Qwen2. Remove "Load_Qwen2_Model.Bat" when done.
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
 - Investigating optimal processing on, gpu and cpu, are the new AMD AOCL, able to be better taken advantage somehow in the scripts, would this work seamlessly better with, AOCL processor and opencl/AOCL for the graphics, and so produce better combined processing?
