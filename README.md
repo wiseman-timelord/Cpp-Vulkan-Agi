@@ -21,7 +21,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Code will be tailored towards technology level of AMD4/DirectX_12 level hardware.
 
 ### Preview:
-- Standalone Configurator...
+- Standalone Configurator (needs updating for new configuration of functions)...
 ```
 Config Main Menu
 
