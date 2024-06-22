@@ -2,7 +2,7 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
-- Removing, nVidia and Intel, support, steamlining as much as possible, for completion.
+
 - Now there is less code for menus and handling, Other things can be done.
 - Model Handling should be done directly through my scripts, less back and forth.
 - Determining best solutions to AMD, GPU and CPU, whatever is best for, Artic Islands level GPU and Matisse level CPU.
@@ -15,6 +15,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Qwen-Agent is an agent framework, hence here is my drop in interface for Qwen-Agent. 
 
 ### Features:
+- Its AMD only, will feature better compatibility later.
 - Pre-gradio interface for configuration of models through dynamic menu, before main.
 - The project will be progrogrammed for, AMD/nVidia Gpu via Directml and Intel/Amd, support.
 - The project will be optimized for 64GB ram and  hence developed on the model Qwen2-56B-6Bit-GGUF. 
