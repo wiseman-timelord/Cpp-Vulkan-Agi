@@ -21,7 +21,21 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Will be tailoed towards AMD, Artic Islands GPU and Matisse CPU, compatible hardware.
 
 ### Preview:
-- Standalone Configurator (needs updating for new configuration of functions)...
+- Dunno how I am going to show the main program, its a graphical interface. Probably will have to resurrect my website, and get some kind of auto-login thing working so it dont timeout again...
+```
+===== Some Impressive Bot Management =======
+
+--------------------------------------------
+ROBOT1:
+I am a robot, my prime directive is to go to the shops,
+and buy 10 fags.
+-----------------------------------------
+ROBOT2:
+I am designing new hair for ROBOT1.
+
+
+```
+- Standalone Configurator...
 ```
 =================( Main Configurator Menu )==============
 
