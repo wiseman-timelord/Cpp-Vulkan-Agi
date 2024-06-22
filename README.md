@@ -24,6 +24,9 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Dunno how I am going to show the main program, its a graphical interface. Probably will have to resurrect my website, and get some kind of auto-login thing working so it dont timeout again...
 ```
 ===== Some Impressive Bot Management =======
+HUMAN:
+I neez some fags, make a plan, and get me some, so I can
+sit in my chair, and finish my work.
 
 --------------------------------------------
 ROBOT1:
@@ -32,7 +35,7 @@ and buy 10 fags.
 -----------------------------------------
 ROBOT2:
 I am designing new hair and beard for ROBOT1, so it can blend-in
-with the humans.
+with the other humans.
 ----------------------------------------
 ROBOT3:
 I am making backup plan for growing tobacco, in case
