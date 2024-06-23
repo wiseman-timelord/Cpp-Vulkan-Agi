@@ -64,8 +64,8 @@ tobacco in a few months, and no-longer be exploited.
                        3. Processing Method
                 (llama-b3197-bin-win-vulkan-x64)
 
-                       4. GPU Memory Usage
-                              (80%)
+                       4. Max Memory Usage
+                              (90%)
 
                         5. GGUF Model Used
                   (dolphin-2.9.2-qwen2-7b.Q6_K)
