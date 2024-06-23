@@ -8,6 +8,7 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         current_method_display = os.path.basename(os.path.dirname(cpp_binary_path))
+        model_file_display = shorten_path(os.path.splitext(os.path.basename(current_model))[0], 35)
         print("\n=================( Main Configurator Menu )==============\n")
         print("\n                  1. Install Requirements")
         print(f"                        ({requirement_update})")
@@ -17,8 +18,8 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
         print(f"             ({current_method_display})")
         print("\n                   4. GPU Memory Usage")
         print(f"                           ({gpu_memory_percentage}%)")
-        print("\n                  5. GGUF Model Location")
-        print(f"              ({shorten_path(current_model, 35)})")
+        print("\n                  5. GGUF Model Used")
+        print(f"              ({model_file_display})")
         print("\n\n---------------------------------------------------------")
         print("Selection; Choose Options = 1-5, Exit & Save = X:", end=' ')
 
@@ -61,6 +62,7 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
 
     with open('.\\data\\config_general.json', 'w') as config_file:
         json.dump(config, config_file)
+
 
 def toggle_processing_method(current_cpp_binary_path):
     cpp_binaries = [
