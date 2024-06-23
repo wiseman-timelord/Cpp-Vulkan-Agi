@@ -69,7 +69,7 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 - Llama.Cpp pre-compiled binaries, this is installed by the configurator.
 - Requirements.txt, this is installed by the configurator.
 - Python Developed on Python 3.12.4, untested on others.
-- .
+- Windows Non-WSL, most will work, but its developed on Windows 10.
 
 ### Instructions:
 - Releases are considered non-working, but are produced to save versions of code for later, as idea hopping during alpha. Do not expect the current version to work, its in Alpha stage.
