@@ -2,13 +2,13 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
-- Working further into Configurator, now intended to install and configure, Avx1, Avx2, Avx512, OpenCL, Vulkan. All flavors of AMD, and because it includes Vulkan, it will also work on nVidia.
+- Configurator, now features install of llama.cpp binaries for, Avx1, Avx2, Avx512, OpenCL, Vulkan. This now requires to be correctly implemented in the scripts.
+- Configurator needs auto-padding around menu items.
 - It is not possible to run ollama-python without also running a server. There are many new flavors of "Llama.Cpp", VULKAN!! but also, llvm, kompute, msvc, win-rpc, win-sycl, all of which need researching, and then of course there is OpenBlas. Ensure this is figured out and setup corretly for Qwen2.
 - We do want to take advantage of the advanced features, for example the advanced context code, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
 - Investigating optimal processing on, gpu and cpu. Q) would AOCL work together with OpenCL, in some kind of hybrid solution, so as to have some kind of enhancement to the OpenCL, seems as its supposed to be slower than DirectML?
 - After code context begins to become an issue, then an assessment of the scripts, and where the most lines can be saved, by taking the functions then, optimize and make more dynamic and compacted, so as to generally take less lines, to make the context back to safe level. 
 - Ensure project is complete working version, bug free and as intended.
-- Its AMD only, but will possibly feature intel/nvidia later, at some point after completion.
 - a youtube demonstration video, to gain interest and guide people.
 
 ## Description:
