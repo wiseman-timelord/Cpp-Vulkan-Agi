@@ -1,26 +1,32 @@
-# .\config_general.py
-
 import json, time, os, subprocess, requests, shutil, zipfile
 from datetime import datetime
 from tqdm import tqdm
 
 def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, requirement_update, config):
+    window_width = 65
+    window_height = 30
+    
+    # Function to calculate padding
+    def pad_center(text, width):
+        return text.center(width)
+
     while True:
+        os.system('mode con: cols={} lines={}'.format(window_width, window_height))
         os.system('cls' if os.name == 'nt' else 'clear')
         current_method_display = os.path.basename(os.path.dirname(cpp_binary_path))
         model_file_display = shorten_path(os.path.splitext(os.path.basename(current_model))[0], 35)
-        print("\n=================( Main Configurator Menu )==============\n")
-        print("\n                  1. Install Requirements")
-        print(f"                        ({requirement_update})")
-        print("\n                 2. Install Llama Binaries")
-        print("                          (b3197)")
-        print("\n                   3. Processing Method")
-        print(f"             ({current_method_display})")
-        print("\n                   4. GPU Memory Usage")
-        print(f"                           ({gpu_memory_percentage}%)")
-        print("\n                  5. GGUF Model Used")
-        print(f"              ({model_file_display})")
-        print("\n\n---------------------------------------------------------")
+        print("\n\n\n\n\n=====================( Main Configurator Menu )==================\n\n")
+        print(pad_center("1. Install Requirements", window_width))
+        print(pad_center(f"({requirement_update})\n", window_width))
+        print(pad_center("2. Install Llama Binaries", window_width))
+        print(pad_center("(b3197)\n", window_width))
+        print(pad_center("3. Processing Method", window_width))
+        print(pad_center(f"({current_method_display})\n", window_width))
+        print(pad_center("4. GPU Memory Usage", window_width))
+        print(pad_center(f"({gpu_memory_percentage}%)\n", window_width))
+        print(pad_center("5. GGUF Model Used", window_width))
+        print(pad_center(f"({model_file_display})\n", window_width))
+        print("\n" + "-"*window_width)
         print("Selection; Choose Options = 1-5, Exit & Save = X:", end=' ')
 
         main_selection = get_user_selection()
@@ -62,7 +68,6 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
 
     with open('.\\data\\config_general.json', 'w') as config_file:
         json.dump(config, config_file)
-
 
 def toggle_processing_method(current_cpp_binary_path):
     cpp_binaries = [
