@@ -23,7 +23,7 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 ### Preview:
 - Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
 ```
-===== Some Impressive Bot Management =======
+===== Some Impressive Bot Management Program =======
 
 HUMAN:
 I neez some fags, make a plan, and get me some, so I can
@@ -31,17 +31,16 @@ sit in my chair, and finish my project without thinking
 about how life is passing by.
 --------------------------------------------
 ROBOT1:
-I am a robot, my prime directive is to go to the shops,
-and buy 10 fags, but first I must aquire a disguise.
+My prime directive is to go to the shops,
+and buy 10 fags, do you compute.
 -----------------------------------------
 ROBOT2:
-I am designing new hair and beard for ROBOT1, so it can blend-in
-with the other humans.
+Designing fake hair and beard for ROBOT1, so it can blend-in
+with the other humans, during travel to the shop.
 ----------------------------------------
 ROBOT3:
-I am making backup plan for growing tobacco, in case
-there are no fags at the shop.
-
+By growing tobacco, we will have our own source of
+tobacco in a few months, and no-longer be exploited.
 
 ```
 - Standalone Configurator looks the part now...
