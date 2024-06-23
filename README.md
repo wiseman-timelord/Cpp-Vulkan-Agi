@@ -77,7 +77,7 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 ## Requirements:
 - Python, Developed on [Python 3.12.x](https://www.python.org/downloads/release/python-3120/?ref=upstract.com) Non-WSL, untested on others.
 - [Windows](https://www.ebay.co.uk/b/bn_2683753), most will work, but its developed on Windows 10.
-- [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/), so things like `pyamdgpuinfo` can be built by pip.
+- [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with "Desktop development with C++" installed, so pip can install things like `pyamdgpuinfo`.
 - Requirements.txt, mostly from the framework, are installed by the configurator.
 - Other libraries, such as llama.cpp, are installed by the configurator.
 
