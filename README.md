@@ -86,13 +86,13 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 
 
 ### Instructions:
-- Releases are considered non-working, but are produced to save versions of code for later, as idea hopping during alpha. Do not expect the current version to work, its in Alpha stage.
-1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files to the directory you created.
-2. Drop in my scripts directly into "Qwen-Agent-0.0.5+" preserving file structure, and over-writing the "requirements.txt".
-3. Install the requirements by clicking on "Install_Requirements.Bat", there will be some new library requirements now.
-4. Load the model you intend to use in ollama, this possibly can be made easier by running "Load_Qwen2_Model.Bat"
-5. Run "QwenAgent-Configurator.Bat" to setup the, model file and graphics mode/card and determine cpu types. other options to come.
-6. Run "QwenAgent-LaunchMain.Bat" to start the session. 
+- Releases are considered non-working, but here are the early instructions...
+1. Ensure you are on Windows, and are not using Wsl to run python, unless you know some other method of emulating windows python.
+2. Ensure you have Installed the requirements detailed above, for, C++ Build Tools and Python.
+3. Download [Qwen-Agent Framework](https://github.com/QwenLM/Qwen-Agent) into a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files directly to that folder.
+4. Drop in my scripts for QwenAgent-Interface directly into "Qwen-Agent-0.0.5+" preserving file structure, and relevantly over-writing the "requirements.txt".
+5. Install remaining, requirements and libraries, through "QwenAgent-Configure.Bat", and setup the model used and tweak max memory if you feel the need.
+6. Run "QwenAgent-Launcher.Bat" to start the session. 
 
 ### Notes:
 - Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
