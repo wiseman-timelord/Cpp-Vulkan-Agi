@@ -1,5 +1,5 @@
-# QwenAgent-Interface
-Project Status: Alpha; under development. A project to produce, an awesome interface/core for the Qwen-Agent framework....
+# QwenAgent-CppCore
+Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
@@ -17,7 +17,7 @@ Project Status: Alpha; under development. A project to produce, an awesome inter
 - a youtube demonstration video, to gain interest and guide people.
 
 ## Description:
-- Qwen-Agent is an agent framework, hence here is my drop in advanced interface for Qwen-Agent. 
+- Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turns out the AMD on windows is still limited even with DirectML, because that only works on certain AMD hardware with windows, so we are reverting to llama.cpp, and inadvertantly finding llama.cpp does now infact feature vulkan, and has been for a while, this definately saves the project for me.
 
 ### Features:
 - No requirement of, Ollama or LMStudio, models are accessed through llama.cpp pre-compiled binaries.
