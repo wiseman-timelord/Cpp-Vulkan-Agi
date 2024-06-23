@@ -3,6 +3,9 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
+- Complete Max Memory Used feature.
+- Optimize repeating lines in Configurator.
+- Refractor scripts, create a ".\scripts\utility_shared.py" script, for functions used by, ".\main_config.py" and ".\main_launch.py", namely the import and export of jsons. The standalone script is just over the limit of 
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further.
