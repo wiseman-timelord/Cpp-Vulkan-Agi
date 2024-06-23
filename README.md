@@ -17,6 +17,7 @@ Project Status: Alpha; under development. It does not work yet....
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
 - a youtube demonstration video, to gain interest and guide people.
+- New name Possibly, QAgent-CppAgi, QwenAgent-CppCore, ??
 
 ## Description:
 - Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turns out the AMD on windows is still limited even with DirectML, because that only works on certain AMD hardware with windows. So we are reverting to llama.cpp, and inadvertantly finding llama.cpp does now infact feature vulkan, and has been for a while, this saves the project for me, but also makes me wonder why ollama is not using this, as it uses llamacpp binaries too doesnt it?
