@@ -24,7 +24,8 @@ Project Status: Alpha; under development. It does not work yet....
 ### Features:
 - No requirement of, Ollama or LMStudio, models are accessed through llama.cpp pre-compiled binaries.
 - Optional Vulkan, reportedly twice as fast as OpenCL, and it works on nVidia, otherwise its all AMD. 
-- Standalone Configurator Tool, for pre-launch, Install & Setup, through, pip and webrequest and github
+- Standalone Configurator Tool, for pre-launch, Install & Setup, through, pip and webrequest and github.
+- Monitoring of system memory usage with auto-unload model, to ensure computer is not over-loaded.
  
 ### Preview:
 - Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
