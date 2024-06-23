@@ -14,11 +14,10 @@ Project Status: Alpha; under development. To produce, some awesome interface for
 - Qwen-Agent is an agent framework, hence here is my drop in advanced interface for Qwen-Agent. 
 
 ### Features:
-- Optional Vulkan Llama.Cpp, twice as fast as OpenBlas (the OpenCL version), and it works on nVidia.
-- Developed for, Matisse CPU with 64GB and 8GB Artic Islands GPU, aiming for Qwen2 57B GGUF models, with GPU layers. 
-- Requirement/Llama.Cpp Install & Startup configuration, through Standalone Configurator Tool for pre-launch.
-
-
+- No requirement of, Ollama or LMStudio, models are accessed through llama.cpp pre-compiled binaries.
+- Optional Vulkan, reportedly twice as fast as OpenCL, and it works on nVidia, otherwise its all AMD. 
+- Standalone Configurator Tool, for pre-launch, Install & Setup, through, pip and webrequest and github
+ 
 ### Preview:
 - Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
 ```
@@ -67,6 +66,12 @@ tobacco in a few months, and no-longer be exploited.
 Selection; Choose Options = 1-5, Exit & Save = X:
 ```
 
+## Requirements:
+- Llama.Cpp pre-compiled binaries, this is installed by the configurator.
+- Requirements.txt, this is installed by the configurator.
+- Python Developed on Python 3.12.4, untested on others.
+- .
+
 ## Instructions:
 - Releases are considered non-working, but are produced to save versions of code for later, as idea hopping during alpha. Do not expect the current version to work, its in Alpha stage.
 1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files to the directory you created.
@@ -76,4 +81,8 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 5. Run "QwenAgent-Configurator.Bat" to setup the, model file and graphics mode/card and determine cpu types. other options to come.
 6. Run "QwenAgent-LaunchMain.Bat" to start the session. 
 
+## Credits:
+- The producers of...Llama.cpp, Vulkan, Qwen-Agent Framework, Qwen2 series language models...make my project possible.
 
+## Notes:
+- Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
