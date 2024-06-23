@@ -72,7 +72,7 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 - Python Developed on Python 3.12.4, untested on others.
 - .
 
-## Instructions:
+### Instructions:
 - Releases are considered non-working, but are produced to save versions of code for later, as idea hopping during alpha. Do not expect the current version to work, its in Alpha stage.
 1. Create a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files to the directory you created.
 2. Drop in my scripts directly into "Qwen-Agent-0.0.5+" preserving file structure, and over-writing the "requirements.txt".
@@ -81,8 +81,10 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 5. Run "QwenAgent-Configurator.Bat" to setup the, model file and graphics mode/card and determine cpu types. other options to come.
 6. Run "QwenAgent-LaunchMain.Bat" to start the session. 
 
+### Notes:
+- Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
+
 ## Credits:
 - The producers of...Llama.cpp, Vulkan, Qwen-Agent Framework, Qwen2 series language models...make my project possible.
 
-## Notes:
-- Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
+
