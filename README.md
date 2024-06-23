@@ -3,8 +3,7 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
-- Question and Complete, any placeholders found in scripts.
-- Determine if all the code is implemented, by going over qwen-agent tutorials.
+- Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further.
 - Possibly We need to ensure to utilize 
