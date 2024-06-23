@@ -1,4 +1,4 @@
-# QwenAgent-CppCore
+# QwenAgent-Interface
 Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
