@@ -81,8 +81,8 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 - [Windows](https://www.ebay.co.uk/b/bn_2683753), most will work, but its developed on Windows 10.
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with "Desktop development with C++" installed, so pip can install things like `pyamdgpuinfo`.
 - [Qwen-Agent Framework](https://github.com/QwenLM/Qwen-Agent), without dropping my files into that, they wont work.
-- Requirements.txt, mostly from the framework, are installed by the configurator.
-- Other libraries, such as llama.cpp, are installed by the configurator.
+- [Requirements.txt](https://github.com/wiseman-timelord/QwenAgent-Interface/blob/main/requirements.txt), mostly from the framework, are installed by the configurator.
+- Other libraries, such as [llama.cpp pre-compiled binaries](https://github.com/ggerganov/llama.cpp/releases), are installed by the configurator.
 
 
 ### Instructions:
