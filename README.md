@@ -2,10 +2,14 @@
 Project Status: Alpha; under development. To produce, some awesome interface for the Qwen-Agent framework....
 
 ### Current Work
-- Configurator, now features install of llama.cpp binaries for, Avx1, Avx2, Avx512, OpenCL, Vulkan. This now requires to be correctly implemented in the scripts.
-- We do want to take advantage of the advanced features, for example the advanced context code in the framework, code interpreter etc, ensure that these themes of code and associated advantageous code is incorporated correctly into our gradio interface.
-- After code context begins to become an issue, then an assessment of the scripts, and where the most lines can be saved, by taking the functions then, optimize and make more dynamic and compacted, so as to generally take less lines, to make the context back to safe level. 
-- Ensure project is complete working version, bug free and as intended.
+1. There is a placeholders in main_launch in the main function, this will require to be completed...
+- Placeholder to show the initial model response
+- Proceed with setting up Gradio and other components
+2. Complete script to bug free version that can startup and shutdown.
+3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
+4. We do want to take advantage of the features in the framework, ensure to investigate framework further.
+5. Correct, Improve and Expand...
+- After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
 - a youtube demonstration video, to gain interest and guide people.
 
