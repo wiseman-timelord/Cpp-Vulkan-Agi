@@ -75,10 +75,12 @@ Selection; Choose Options = 1-5, Exit & Save = X:
 ```
 
 ## Requirements:
-- Llama.Cpp pre-compiled binaries, this is installed by the configurator.
-- Requirements.txt, this is installed by the configurator.
-- Python Developed on Python 3.12.4, untested on others.
-- Windows Non-WSL, most will work, but its developed on Windows 10.
+- Python, Developed on [Python 3.12.x](https://www.python.org/downloads/release/python-3120/?ref=upstract.com) Non-WSL, untested on others.
+- [Windows](https://www.ebay.co.uk/b/bn_2683753), most will work, but its developed on Windows 10.
+- [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/), so things like `pyamdgpuinfo` can build.
+- Requirements.txt, mostly from the framework, are installed by the configurator.
+- Other libraries, such as llama.cpp, are installed by the configurator.
+
 
 ### Instructions:
 - Releases are considered non-working, but are produced to save versions of code for later, as idea hopping during alpha. Do not expect the current version to work, its in Alpha stage.
