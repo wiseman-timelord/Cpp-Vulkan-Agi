@@ -9,7 +9,7 @@ def display_task_management(agent_type, tasks):
         task_overview += f"- {task}\n"
     return task_overview
 
-def setup_gradio_interface(agents, tokenizer, device):
+def setup_gradio_interface(agents, cpp_binary_path, gpu_memory_percentage):
     with gr.Blocks() as demo:
         with gr.Row():
             with gr.Column(scale=2):
@@ -18,7 +18,7 @@ def setup_gradio_interface(agents, tokenizer, device):
                 submit_btn = gr.Button("Send")
                 agent_selector = gr.Dropdown(choices=list(agents.keys()), label="Select Agent", value='Manager')
                 submit_btn.click(
-                    lambda agent_type, user_input, chat_history: generate_response(agents[agent_type], tokenizer, device, user_input, chat_history),
+                    lambda agent_type, user_input, chat_history: generate_response(cpp_binary_path, agents[agent_type], user_input, chat_history, gpu_memory_percentage),
                     [agent_selector, user_input, chatbot], chatbot
                 )
             with gr.Column(scale=1):
@@ -29,6 +29,6 @@ def setup_gradio_interface(agents, tokenizer, device):
                 )
     return demo
 
-def launch_gradio_interface(agents, tokenizer, device):
-    demo = setup_gradio_interface(agents, tokenizer, device)
+def launch_gradio_interface(agents, cpp_binary_path, gpu_memory_percentage):
+    demo = setup_gradio_interface(agents, cpp_binary_path, gpu_memory_percentage)
     demo.launch()

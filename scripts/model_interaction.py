@@ -1,23 +1,29 @@
 # .\scripts\model_interaction.py
 
-import ollama
+import subprocess
 
-def initialize_model(model_name, device):
-    if device == "gpu":
-        import torch_directml
-        dml = torch_directml.device()
-        model = ollama.chat(model=model_name, messages=[], device=dml)
-        tokenizer = ollama.AutoTokenizer.from_pretrained(model_name)
-        return model, tokenizer, dml
-    else:
-        model = ollama.chat(model=model_name, messages=[])
-        tokenizer = ollama.AutoTokenizer.from_pretrained(model_name)
-        return model, tokenizer, device
+def run_llama_cli(cpp_binary_path, model_path, prompt, gpu_memory_percentage):
+    command = [
+        cpp_binary_path,
+        "-m", model_path,
+        "-c", "512",
+        "-b", "1024",
+        "-n", "256",
+        "--keep", "48",
+        "--repeat_penalty", "1.0",
+        "--color",
+        "-i",
+        "-r", "User:",
+        "-p", prompt
+    ]
+    if gpu_memory_percentage:
+        command += ["--gpu-memory", str(gpu_memory_percentage)]
 
-def generate_response(agent, tokenizer, device, user_input, chat_history):
-    prompt = "You are a helpful assistant."
-    messages = [{"role": "system", "content": prompt}] + [{'role': 'user', 'content': msg[0]} for msg in chat_history]
-    messages.append({'role': 'user', 'content': user_input})
-    response = ollama.chat(model=agent, messages=messages, device=device)
-    chat_history.append((user_input, response['message']['content']))
+    result = subprocess.run(command, capture_output=True, text=True)
+    return result.stdout
+
+def generate_response(cpp_binary_path, agent, user_input, chat_history, gpu_memory_percentage):
+    prompt = "You are a helpful assistant.\n" + "\n".join([msg[0] for msg in chat_history]) + f"\n{user_input}"
+    response = run_llama_cli(cpp_binary_path, agent, prompt, gpu_memory_percentage)
+    chat_history.append((user_input, response.strip()))
     return chat_history

@@ -11,7 +11,13 @@ import os
 import json5
 from typing import Dict, List, Optional, Tuple, Union
 
-def create_agent(agent_type, llm_cfg, system_instruction, tools, files=None):
+def create_agent(agent_type, model_name, system_instruction, tools, files=None):
+    llm_cfg = {
+        'model': model_name,
+        'generate_cfg': {
+            'temperature': 0.7, 'top_p': 0.9, 'repeat_penalty': 1.1, 'top_k': 50
+        }
+    }
     if agent_type == 'Manager':
         return Assistant(llm=llm_cfg, system_message=system_instruction, function_list=tools, files=files)
     elif agent_type == 'Coder':
@@ -59,7 +65,7 @@ def register_tools():
         def __init__(self, cfg: Optional[Dict] = None):
             super().__init__(cfg)
             self.work_dir = os.path.join(os.getcwd(), 'code_interpreter_workspace')
-            os.makedirs(this.work_dir, exist_ok=True)
+            os.makedirs(self.work_dir, exist_ok=True)
             self.instance_id = str(uuid.uuid4())
 
         def _start_kernel(self, kernel_id: str) -> Tuple[BlockingKernelClient, subprocess.Popen]:
@@ -117,9 +123,9 @@ def register_tools():
                 kc.stop_channels()
                 kernel_process.terminate()
             
-            return result if result.strip() else 'Finished execution.'
+            return
 
-def setup_agents(model_name, device):
+def setup_agents(model_name, gpu_memory_percentage):
     register_tools()
     
     agent_configs = {
@@ -143,12 +149,6 @@ def setup_agents(model_name, device):
         }
     }
 
-    base_llm_cfg = {
-        'model': model_name,
-        'model_server': 'http://localhost:8000/v1',  # Ensure this is the correct server address
-        'api_key': ''
-    }
-
     system_instructions = {
         'Manager': 'You are a manager, overseeing and coordinating other agents to achieve goals.',
         'Coder': 'You generate and refine code based on user requirements.',
@@ -163,8 +163,6 @@ def setup_agents(model_name, device):
 
     agents = {}
     for agent_type, cfg in agent_configs.items():
-        llm_cfg = base_llm_cfg.copy()
-        llm_cfg['generate_cfg'] = cfg
-        agents[agent_type] = create_agent(agent_type, llm_cfg, system_instructions[agent_type], common_tools, file_paths)
+        agents[agent_type] = create_agent(agent_type, model_name, system_instructions[agent_type], common_tools, file_paths)
     
     return agents

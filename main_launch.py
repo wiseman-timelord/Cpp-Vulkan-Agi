@@ -1,49 +1,45 @@
 # .\main_launch.py
 
 import json
-import ollama
+import subprocess
 
-def initialize_ollama_model(model_name):
-    ollama.pull(model_name)
+def run_llama_cli(cpp_binary_path, model_path, gpu_memory_percentage):
+    command = [
+        cpp_binary_path,
+        "-m", model_path,
+        "-c", "512",
+        "-b", "1024",
+        "-n", "256",
+        "--keep", "48",
+        "--repeat_penalty", "1.0",
+        "--color",
+        "-i",
+        "-r", "User:"
+    ]
+    if gpu_memory_percentage:
+        command += ["--gpu-memory", str(gpu_memory_percentage)]
+
+    result = subprocess.run(command, capture_output=True, text=True)
+    return result.stdout
+
 
 def main():
     with open('./data/config_general.json', 'r') as config_file:
         config = json.load(config_file)
 
     current_model = config["current_model"]
-    current_processor = config["current_processor"]
+    cpp_binary_path = config["cpp_binary_path"]
     gpu_memory_percentage = config["gpu_memory_percentage"]
 
-    if current_model == "None" or current_processor == "None":
+    if not current_model:
         print("Configuration not set. Please run main_config.py first.")
         return
 
-    if "GPU AMD" in current_processor:
-        device = "gpu"
-        gpu_memory_limit = f"{gpu_memory_percentage}%"
-    else:
-        device = "cpu"
-        gpu_memory_limit = None
+    prompt = "Initial prompt to set up the model"
+    response = run_llama_cli(cpp_binary_path, current_model, gpu_memory_percentage)
+    print(response)  # Placeholder to show the initial model response
 
-    initialize_ollama_model(current_model)
-
-    model, tokenizer = initialize_model(current_model, device, gpu_memory_limit)
-    agents = setup_agents(current_model, device)
-    launch_gradio_interface(agents, tokenizer, device)
-
-def initialize_model(model_name, device, gpu_memory_limit=None):
-    if device == "gpu":
-        import torch_directml
-        dml = torch_directml.device()
-        if gpu_memory_limit:
-            torch_directml.set_memory_fraction(float(gpu_memory_limit.strip('%')) / 100.0, dml)
-        model = ollama.chat(model=model_name, messages=[], device=dml)
-        tokenizer = ollama.AutoTokenizer.from_pretrained(model_name)
-        return model, tokenizer
-    else:
-        model = ollama.chat(model=model_name, messages=[])
-        tokenizer = ollama.AutoTokenizer.from_pretrained(model_name)
-        return model, tokenizer
+    # Proceed with setting up Gradio and other components
 
 if __name__ == "__main__":
     main()
