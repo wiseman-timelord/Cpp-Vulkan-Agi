@@ -8,10 +8,13 @@ Project Status: Alpha; under development. It does not work yet....
 - Determine if all the code is implemented, by going over qwen-agent tutorials.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further.
+- Possibly We need to ensure to utilize 
 2. Bugfix scripts to a bug free version that can startup and shutdown.
 3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
 4. investigave correct operation through gradio interface, ensuare all features working correctly.
 5. Improve and Expand...
+- agents able to work in parrellel, each having, a copy of the same model.
+- Multi-model, running multiple models each with a share of the threads, multi-agent could then utilize different models.
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
 - a youtube demonstration video, to gain interest and guide people.
