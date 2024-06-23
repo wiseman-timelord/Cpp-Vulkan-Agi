@@ -123,9 +123,9 @@ def register_tools():
                 kc.stop_channels()
                 kernel_process.terminate()
             
-            return
+            return result if result.strip() else 'Finished execution.'
 
-def setup_agents(model_name, gpu_memory_percentage):
+def setup_agents(model_name, cpp_binary_path, gpu_memory_percentage):
     register_tools()
     
     agent_configs = {

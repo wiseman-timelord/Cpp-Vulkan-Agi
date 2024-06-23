@@ -19,11 +19,18 @@ def run_llama_cli(cpp_binary_path, model_path, prompt, gpu_memory_percentage):
     if gpu_memory_percentage:
         command += ["--gpu-memory", str(gpu_memory_percentage)]
 
-    result = subprocess.run(command, capture_output=True, text=True)
-    return result.stdout
+    try:
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        print(f"Error running llama CLI: {e}")
+        return None
 
 def generate_response(cpp_binary_path, agent, user_input, chat_history, gpu_memory_percentage):
-    prompt = "You are a helpful assistant.\n" + "\n".join([msg[0] for msg in chat_history]) + f"\n{user_input}"
+    prompt = "You are a helpful assistant.\n" + "\n".join([f"User: {msg[0]}\nAgent: {msg[1]}" for msg in chat_history]) + f"\nUser: {user_input}"
     response = run_llama_cli(cpp_binary_path, agent, prompt, gpu_memory_percentage)
-    chat_history.append((user_input, response.strip()))
+    if response:
+        chat_history.append((user_input, response.strip()))
+    else:
+        chat_history.append((user_input, "Failed to generate response."))
     return chat_history
