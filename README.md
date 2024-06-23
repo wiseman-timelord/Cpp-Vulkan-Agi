@@ -15,6 +15,7 @@ Project Status: Alpha; under development. It does not work yet....
 5. Improve and Expand...
 - agents able to work in parrellel, each having, a copy of the same model.
 - Multi-model, running multiple models each with a share of the threads, multi-agent could then utilize different models.
+- Further updates to UI, to integrate all improvements somehow.
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
 - a youtube demonstration video, to gain interest and guide people.
