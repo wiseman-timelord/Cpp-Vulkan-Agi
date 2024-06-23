@@ -26,9 +26,10 @@ def run_llama_cli(cpp_binary_path, model_path, prompt, gpu_memory_percentage):
         print(f"Error running llama CLI: {e}")
         return None
 
-def generate_response(cpp_binary_path, agent, user_input, chat_history, gpu_memory_percentage):
+def generate_response(cpp_binary_path, agent, user_input, chat_history, max_memory_usage, use_gpu=True):
     prompt = "You are a helpful assistant.\n" + "\n".join([f"User: {msg[0]}\nAgent: {msg[1]}" for msg in chat_history]) + f"\nUser: {user_input}"
-    response = run_llama_cli(cpp_binary_path, agent, prompt, gpu_memory_percentage)
+    
+    response = run_llama_cli(cpp_binary_path, agent, prompt, max_memory_usage, use_gpu)
     if response:
         chat_history.append((user_input, response.strip()))
     else:

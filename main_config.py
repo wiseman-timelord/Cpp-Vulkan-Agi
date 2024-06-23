@@ -2,7 +2,7 @@ import json, time, os, subprocess, requests, shutil, zipfile
 from datetime import datetime
 from tqdm import tqdm
 
-def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, requirement_update, config):
+def display_main_menu(current_model, cpp_binary_path, maximum_memory_usage, requirement_update, config):
     window_width = 65
     window_height = 30
     
@@ -15,15 +15,15 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
         os.system('cls' if os.name == 'nt' else 'clear')
         current_method_display = os.path.basename(os.path.dirname(cpp_binary_path))
         model_file_display = shorten_path(os.path.splitext(os.path.basename(current_model))[0], 35)
-        print("\n\n\n\n\n=====================( Main Configurator Menu )==================\n\n")
+        print("\n\n\n\n=====================( Main Configurator Menu )==================\n\n")
         print(pad_center("1. Install Requirements", window_width))
         print(pad_center(f"({requirement_update})\n", window_width))
         print(pad_center("2. Install Llama Binaries", window_width))
-        print(pad_center("(b3197)\n", window_width))
+        print(pad_center("(b3206)\n", window_width))
         print(pad_center("3. Processing Method", window_width))
         print(pad_center(f"({current_method_display})\n", window_width))
-        print(pad_center("4. GPU Memory Usage", window_width))
-        print(pad_center(f"({gpu_memory_percentage}%)\n", window_width))
+        print(pad_center("4. Maximum Memory Usage", window_width))
+        print(pad_center(f"({maximum_memory_usage}%)\n", window_width))
         print(pad_center("5. GGUF Model Used", window_width))
         print(pad_center(f"({model_file_display})\n", window_width))
         print("\n" + "-"*window_width)
@@ -47,10 +47,10 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
             config["cpp_binary_path"] = cpp_binary_path
 
         elif main_selection == '4':
-            new_gpu_memory_percentage = input("Enter new GPU memory usage percentage (10-100): ").strip()
-            if new_gpu_memory_percentage.isdigit() and 10 <= int(new_gpu_memory_percentage) <= 100:
-                gpu_memory_percentage = int(new_gpu_memory_percentage)
-                config["gpu_memory_percentage"] = gpu_memory_percentage
+            new_memory_usage = input("Enter new maximum memory usage percentage (10-100): ").strip()
+            if new_memory_usage.isdigit() and 10 <= int(new_memory_usage) <= 100:
+                maximum_memory_usage = int(new_memory_usage)
+                config["maximum_memory_usage"] = maximum_memory_usage
                 time.sleep(1)
             else:
                 print("Invalid percentage. Please try again.")
@@ -69,13 +69,14 @@ def display_main_menu(current_model, cpp_binary_path, gpu_memory_percentage, req
     with open('.\\data\\config_general.json', 'w') as config_file:
         json.dump(config, config_file)
 
+
 def toggle_processing_method(current_cpp_binary_path):
     cpp_binaries = [
-        ".\\data\\llama-b3197-bin-win-avx-x64\\llama-cli.exe",
-        ".\\data\\llama-b3197-bin-win-avx2-x64\\llama-cli.exe",
-        ".\\data\\llama-b3197-bin-win-avx512-x64\\llama-cli.exe",
-        ".\\data\\llama-b3197-bin-win-openblas-x64\\llama-cli.exe",
-        ".\\data\\llama-b3197-bin-win-vulkan-x64\\llama-cli.exe"
+        ".\\data\\llama-b3206-bin-win-avx-x64\\llama-cli.exe",
+        ".\\data\\llama-b3206-bin-win-avx2-x64\\llama-cli.exe",
+        ".\\data\\llama-b3206-bin-win-avx512-x64\\llama-cli.exe",
+        ".\\data\\llama-b3206-bin-win-openblas-x64\\llama-cli.exe",
+        ".\\data\\llama-b3206-bin-win-vulkan-x64\\llama-cli.exe"
     ]
     
     current_index = cpp_binaries.index(current_cpp_binary_path)
@@ -94,8 +95,8 @@ def get_user_selection():
 def load_config():
     default_config = {
         "current_model": ".\\ModelFolder\\ModelFile.GGUF",
-        "cpp_binary_path": ".\\data\\llama-b3197-bin-win-openblas-x64\\llama-cli.exe",
-        "gpu_memory_percentage": 50,
+        "cpp_binary_path": ".\\data\\llama-b3206-bin-win-openblas-x64\\llama-cli.exe",
+        "maximum_memory_usage": 50,
         "requirement_update": "Never"
     }
     
@@ -105,7 +106,6 @@ def load_config():
     except (FileNotFoundError, json.JSONDecodeError):
         config = default_config
     
-    # Ensure all necessary keys are present, use default values if not
     for key in default_config:
         if key not in config or not config[key]:
             config[key] = default_config[key]
@@ -156,18 +156,18 @@ def download_and_extract(url, extract_to):
 
 def install_llama_binaries():
     urls = [
-        "https://github.com/ggerganov/llama.cpp/releases/download/b3197/llama-b3197-bin-win-vulkan-x64.zip",
-        "https://github.com/ggerganov/llama.cpp/releases/download/b3197/llama-b3197-bin-win-openblas-x64.zip",
-        "https://github.com/ggerganov/llama.cpp/releases/download/b3197/llama-b3197-bin-win-avx2-x64.zip",
-        "https://github.com/ggerganov/llama.cpp/releases/download/b3197/llama-b3197-bin-win-avx-x64.zip",
-        "https://github.com/ggerganov/llama.cpp/releases/download/b3197/llama-b3197-bin-win-avx512-x64.zip"
+        "https://github.com/ggerganov/llama.cpp/releases/download/b3206/llama-b3206-bin-win-vulkan-x64.zip",
+        "https://github.com/ggerganov/llama.cpp/releases/download/b3206/llama-b3206-bin-win-openblas-x64.zip",
+        "https://github.com/ggerganov/llama.cpp/releases/download/b3206/llama-b3206-bin-win-avx2-x64.zip",
+        "https://github.com/ggerganov/llama.cpp/releases/download/b3206/llama-b3206-bin-win-avx-x64.zip",
+        "https://github.com/ggerganov/llama.cpp/releases/download/b3206/llama-b3206-bin-win-avx512-x64.zip"
     ]
     destinations = [
-        ".\\data\\llama-b3197-bin-win-vulkan-x64\\",
-        ".\\data\\llama-b3197-bin-win-openblas-x64\\",
-        ".\\data\\llama-b3197-bin-win-avx2-x64\\",
-        ".\\data\\llama-b3197-bin-win-avx-x64\\",
-        ".\\data\\llama-b3197-bin-win-avx512-x64\\"
+        ".\\data\\llama-b3206-bin-win-vulkan-x64\\",
+        ".\\data\\llama-b3206-bin-win-openblas-x64\\",
+        ".\\data\\llama-b3206-bin-win-avx2-x64\\",
+        ".\\data\\llama-b3206-bin-win-avx-x64\\",
+        ".\\data\\llama-b3206-bin-win-avx512-x64\\"
     ]
 
     for url, dest in zip(urls, destinations):
