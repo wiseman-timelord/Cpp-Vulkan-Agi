@@ -45,29 +45,27 @@ tobacco in a few months, and no-longer be exploited.
 ```
 - Standalone Configurator looks the part now...
 ```
-
-=================( Main Configurator Menu )==============
-
-
-                  1. Install Requirements
-                        (2024/06/22)
-
-                 2. Install Llama Binaries
-                          (b3197)
-
-                   3. Processing Method
-             (llama-b3197-bin-win-openblas-x64)
-
-                   4. GPU Memory Usage
-                           (66%)
-
-                  5. GGUF Model Used
-                    (Qwen2-7B.Q6_K)
+=====================( Main Configurator Menu )==================
 
 
----------------------------------------------------------
+                     1. Install Requirements
+                          (2024/06/23)
+
+                    2. Install Llama Binaries
+                             (b3197)
+
+                       3. Processing Method
+                (llama-b3197-bin-win-vulkan-x64)
+
+                       4. GPU Memory Usage
+                              (80%)
+
+                        5. GGUF Model Used
+                  (dolphin-2.9.2-qwen2-7b.Q6_K)
+
+
+-----------------------------------------------------------------
 Selection; Choose Options = 1-5, Exit & Save = X:
-
 ```
 
 ## Instructions:
