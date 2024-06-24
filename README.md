@@ -4,7 +4,7 @@ Project Status: Alpha; under development. It does not work yet....
 ### Current Work
 1. Completing the scripts...
 - We are now using AMD ADL library and psutil and pywin32, to monitor, CPU/GPU, Processor Usage and Memory Load, because as it turned out again, the previous library was for linux. Again, the main_config handles the download and install, and the required files are located in ".\data\display-library". The scripts of the main program must be able to deal with and understand this.
-- SetupInstall is now simply to setup and install libraries. The code that started to appear in configurator needs to be done in main program, so it can be done on the fly. 
+- SetupInstall is now simply to setup and install libraries. The code that started to appear in configurator, such as model selection and max memory usage, needs to be done in main program, so it can be done on the fly. 
 - Refractor scripts, create a ".\scripts\utility_shared.py" script, for functions used by, ".\main_config.py" and ".\main_launch.py", namely the import and export of jsons. The standalone script is just over the limit of 
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
