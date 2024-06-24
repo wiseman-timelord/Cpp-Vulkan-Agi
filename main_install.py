@@ -20,7 +20,7 @@ def display_main_menu():
         os.system('mode con: cols={} lines={}'.format(window_width, window_height))
         os.system('cls' if os.name == 'nt' else 'clear')
         
-        print("\n========================( Seup-Installer )=======================\n\n\n\n\n\n\n")
+        print("\n========================( Setup-Installer )=======================\n\n\n\n\n\n\n")
         print(pad_center("1. Install Requirements", window_width))
         print(pad_center("(pip install -r requirements.txt)\n", window_width))
         print(pad_center("2. Install GitHub Libraries", window_width))
@@ -77,6 +77,7 @@ def download_and_extract(url, extract_to):
             unit='iB',
             unit_scale=True,
             unit_divisor=1024,
+            bar_format="{desc}: {percentage:3.0f}%|{bar:20}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]"
     ) as bar:
         for data in response.iter_content(block_size):
             f.write(data)
@@ -90,10 +91,11 @@ def install_github_libraries():
     print("\nInstalling GitHub libraries...\n")
     
     llama_urls = [f"https://github.com/ggerganov/llama.cpp/releases/download/{LLAMA_VERSION}/llama-{LLAMA_VERSION}-bin-win-{suffix}.zip" for suffix in SUFFIXES]
-    llama_destinations = [f".\\data\\llama-bin-win-{suffix}\\" for suffix in SUFFIXES]
+    llama_destinations = [f".\\libraries\\llama-bin-win-{suffix}\\" for suffix in SUFFIXES]
 
     adl_url = f"https://github.com/GPUOpen-LibrariesAndSDKs/display-library/archive/refs/tags/{ADL_VERSION}.zip"
-    adl_destination = ".\\data\\amdadl-display-library\\"
+    adl_temp_destination = ".\\libraries\\amdadl-display-library-temp\\"
+    adl_destination = ".\\libraries\\amdadl-display-library\\"
 
     # Install Llama binaries
     for suffix, url, dest in zip(SUFFIXES, llama_urls, llama_destinations):
@@ -106,15 +108,13 @@ def install_github_libraries():
         try:
             download_and_extract(url, dest)
             # Ensure the extracted folder is renamed correctly
-            extracted_dir = f".\\data\\llama-{LLAMA_VERSION}-bin-win-{suffix}\\"
+            extracted_dir = f".\\libraries\\llama-{LLAMA_VERSION}-bin-win-{suffix}\\"
             if os.path.exists(extracted_dir):
                 shutil.move(extracted_dir, dest)
         except Exception as e:
             print(f"Failed to download or extract {url}. Reason: {e}")
 
     # Install AMD ADL library
-    adl_temp_destination = f".\\data\\amdadl-display-library\\"
-    adl_path = os.path.join(adl_temp_destination, f"amdadl-display-library")
     if os.path.exists(adl_destination):
         print(f"AMD ADL library already exists at {adl_destination}, skipping download.")
     else:
@@ -122,10 +122,10 @@ def install_github_libraries():
         os.makedirs(adl_temp_destination, exist_ok=True)
         try:
             download_and_extract(adl_url, adl_temp_destination)
-            # Ensure the extracted folder is renamed correctly
-            if os.path.exists(adl_path):
-                shutil.move(adl_path, adl_destination)
-                shutil.rmtree(adl_temp_destination)
+            extracted_dir = os.path.join(adl_temp_destination, f"display-library-{ADL_VERSION}")
+            if os.path.exists(extracted_dir):
+                shutil.move(extracted_dir, adl_destination)
+            shutil.rmtree(adl_temp_destination)
         except Exception as e:
             print(f"Failed to download or extract {adl_url}. Reason: {e}")
 
@@ -143,6 +143,7 @@ def install_github_libraries():
 
     print("\nGitHub libraries installed successfully.")
     time.sleep(5)
+
 
 if __name__ == "__main__":
     display_main_menu()
