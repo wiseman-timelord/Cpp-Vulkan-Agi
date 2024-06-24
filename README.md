@@ -10,8 +10,8 @@ Project Status: Alpha; under development. It does not work yet....
 3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
 4. investigave correct operation through gradio interface, ensuare all features working correctly.
 5. Improve and Expand...
+- Use multiple 7B models for, 1 Chat, 2 Instruct, 3 Code. Store them in system ram, hot-swap the models from memory to GPU, as they are required, and do the processing on the GPU. We could then forget about Avx, and instead include cuda binaries and whatever else, thus, compatible with all, and faster. This all depends on the ability to load and unload models from system memory to GPU, as loading and unloading models to gpu from disk would be rubbish/slow if it only uses them for processing 1-2 times each before swapping. If we are undable to do this, then use chat on gpu, while other two are on system memory, or just all 3 on system memory.
 - agents able to work in parrellel, each having, a copy of the same model.
-- Multi-model, running multiple models each with a share of the threads, multi-agent could then utilize different models.
 - Further updates to UI, to integrate all improvements somehow.
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
