@@ -3,8 +3,6 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
-- Complete Max Memory Used feature.
-- Optimize repeating lines in Configurator.
 - Refractor scripts, create a ".\scripts\utility_shared.py" script, for functions used by, ".\main_config.py" and ".\main_launch.py", namely the import and export of jsons. The standalone script is just over the limit of 
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
@@ -56,6 +54,10 @@ tobacco in a few months, and no-longer be exploited.
 ```
 - Standalone Configurator looks the part now...
 ```
+
+
+
+
 =====================( Main Configurator Menu )==================
 
 
@@ -63,12 +65,12 @@ tobacco in a few months, and no-longer be exploited.
                           (2024/06/23)
 
                     2. Install Llama Binaries
-                             (b3197)
+                             (b3206)
 
                        3. Processing Method
                 (llama-b3197-bin-win-vulkan-x64)
 
-                       4. Max Memory Usage
+                     4. Maximum Memory Usage
                               (90%)
 
                         5. GGUF Model Used
@@ -77,6 +79,11 @@ tobacco in a few months, and no-longer be exploited.
 
 -----------------------------------------------------------------
 Selection; Choose Options = 1-5, Exit & Save = X:
+
+
+
+
+
 ```
 
 ## Requirements:
