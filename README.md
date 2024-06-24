@@ -56,28 +56,28 @@ tobacco in a few months, and no-longer be exploited.
 - Standalone Configurator, for pre-launch setup...
 ```
 
+====================( Main Configurator Menu )===================
 
-=====================( Main Configurator Menu )==================
+
+
+
+
 
 
                      1. Install Requirements
-                          (2024/06/23)
+                (pip install -r requirements.txt)
 
                    2. Install GitHub Libraries
                 (Llama.Cpp: b3206, Amd Adl: 17.1)
 
-                       3. Processing Method
-                (llama-b3197-bin-win-vulkan-x64)
 
-                     4. Maximum Memory Usage
-                              (90%)
 
-                        5. GGUF Model Used
-                  (dolphin-2.9.2-qwen2-7b.Q6_K)
+
+
 
 
 -----------------------------------------------------------------
-Selection; Choose Options = 1-5, Exit & Save = X:
+Selection; Choose Options = 1-2, Exit Config = X:
 
 
 ```
