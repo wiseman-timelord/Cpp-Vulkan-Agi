@@ -52,7 +52,7 @@ By growing tobacco, we will have our own source of
 tobacco in a few months, and no-longer be exploited.
 
 ```
-- Standalone Configurator looks the part now...
+- Standalone Configurator, for pre-launch setup...
 ```
 
 
