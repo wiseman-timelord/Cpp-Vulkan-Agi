@@ -3,6 +3,8 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
+- Use multiple 7B models for, 1 Chat, 2 Instruct, 3 Code. Store them in system ram, hot-swap the models from memory to GPU, as they are required, and do the processing on the GPU. We could then forget about Avx, albeit we could forget about all the libraries and just use vulkan to simplify things, thus, compatible with all vulkan cards, and fast. This all depends on the ability to load and unload models from system memory to GPU, as loading and unloading models to gpu from disk would be rubbish/slow if it only uses them for processing 1-2 times each before swapping. If we are undable to do this, then use chat on gpu, while other two are on system memory, or just all 3 on system memory. 
+- if we only monitor system memory usage, then by using only vulkan, would mean the program is compatible with any vulkan card, though it will be up to the user to ensure the graphics card is able to take the load of each model individually (ie, ensure to use solid color on desktop, and dont load any games, if its a card you are using).
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further, and at the same correct any errors.
@@ -10,7 +12,7 @@ Project Status: Alpha; under development. It does not work yet....
 3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
 4. investigave correct operation through gradio interface, ensuare all features working correctly.
 5. Improve and Expand...
-- Use multiple 7B models for, 1 Chat, 2 Instruct, 3 Code. Store them in system ram, hot-swap the models from memory to GPU, as they are required, and do the processing on the GPU. We could then forget about Avx, albeit we could forget about all the libraries and just use vulkan to simplify things, thus, compatible with all vulkan cards, and fast. This all depends on the ability to load and unload models from system memory to GPU, as loading and unloading models to gpu from disk would be rubbish/slow if it only uses them for processing 1-2 times each before swapping. If we are undable to do this, then use chat on gpu, while other two are on system memory, or just all 3 on system memory.
+
 - agents able to work in parrellel, each having, a copy of the same model.
 - Further updates to UI, to integrate all improvements somehow.
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
