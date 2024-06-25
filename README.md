@@ -5,6 +5,7 @@ Project Status: Alpha; under development. It does not work yet....
 1. Completing the scripts...
 - next version of utility_general.py will be big, ensure to refractor code for loading/unloading models to a new script ".\scripts\model_manager.py", specifically for loading/saving models.
 - rename "menu_display" to "display_gradio", in find in files replacement.
+- need to find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further, and at the same correct any errors.
