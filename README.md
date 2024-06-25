@@ -45,7 +45,7 @@ AI-CHAT:
 Research: Found relevant training data, it says A. 
 Produced relevant web-research for doing X to the Y script.
 Ordering AI-INST to assemble the data from C. 
-Assessing Data, the research sstated B.
+Assessing Data, the research stated B.
 Ordering AI-CODE to produce the relevant updates using information D.
 Operation has been completed, file is saved.
 Unloading all loaded models.
