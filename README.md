@@ -24,7 +24,7 @@ Project Status: Alpha; under development. It does not work yet....
 - Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turns out the AMD on windows is still limited even with DirectML, because that only works on certain AMD hardware with windows. So we are reverting to llama.cpp, and inadvertantly finding llama.cpp does now infact feature vulkan, and has been for a while, this saves the project for me, but also makes me wonder why ollama is not using this, as it uses llamacpp binaries too doesnt it?
 
 ### Features:
-- Gpu-Compatibility :- Runs on, nVidia and Amd (inc non-ROCm), through new Vulkan Llama.cpp Binaries.
+- Gpu-Compatibility :- Runs on Amd (inc non-ROCm) through new Vulkan Llama.cpp Binaries.
 - Multi-Model :- using 3 gguf models, chat, instruct, code, loaded to Ram at start, then GPU on demand.
 - Simple Operation :- No requirement of, Ollama or LMStudio, as using Llama.cpp pre-compiled binaries.
 - Standalone Installer Tool, for pre-launch installation, for pip requirements and github libraries.
