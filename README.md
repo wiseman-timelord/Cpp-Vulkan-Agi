@@ -3,7 +3,6 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
-- Use multiple 7B models for, 1 Chat, 2 Instruct, 3 Code. Store them in system ram, hot-swap the models from memory to GPU, as they are required, and do the processing on the GPU. We could then forget about Avx, albeit we could forget about all the libraries and just use vulkan to simplify things, thus, compatible with all vulkan cards, and fast. This all depends on the ability to load and unload models from system memory to GPU, as loading and unloading models to gpu from disk would be rubbish/slow if it only uses them for processing 1-2 times each before swapping. If we are undable to do this, then use chat on gpu, while other two are on system memory, or just all 3 on system memory. 
 - if we only monitor system memory usage, then by using only vulkan, would mean the program is compatible with any vulkan card, though it will be up to the user to ensure the graphics card is able to take the load of each model individually (ie, ensure to use solid color on desktop, and dont load any games, if its a card you are using). Maybe there is a library for monitoring the GPU though vulkan?
 - Streamline the installer to only install, requirements and the vulkan llama.cpp library. 
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
