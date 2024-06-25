@@ -57,7 +57,7 @@ tobacco in a few months, and no-longer be exploited.
 - Standalone Configurator, for pre-launch setup...
 ```
 
-====================( Main Configurator Menu )===================
+========================( Setup-Installer )=======================
 
 
 
@@ -69,8 +69,7 @@ tobacco in a few months, and no-longer be exploited.
                 (pip install -r requirements.txt)
 
                    2. Install GitHub Libraries
-                (Llama.Cpp: b3206, Amd Adl: 17.1)
-
+                        (Llama.Cpp: b3206)
 
 
 
@@ -79,7 +78,6 @@ tobacco in a few months, and no-longer be exploited.
 
 -----------------------------------------------------------------
 Selection; Choose Options = 1-2, Exit Config = X:
-
 
 ```
 
