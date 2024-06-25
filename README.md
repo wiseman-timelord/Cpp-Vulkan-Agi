@@ -48,7 +48,8 @@ Ordering AI-INST to assemble the data from C.
 Assessing Data, the research sstated B.
 Ordering AI-CODE to produce the relevant updates using information D.
 Operation has been completed, file is saved.
-Unloading models, then shutting down interface, starting in 10 seconds.
+Unloading all loaded models.
+Shutting down interface in 10 seconds.
 --------------------------------------------
 -----------------------------------------
 AI-INST:
