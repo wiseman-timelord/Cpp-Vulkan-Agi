@@ -21,7 +21,7 @@ Project Status: Alpha; under development. It does not work yet....
 - New name Possibly, QAgent-CppAgi, QwenAgent-CppCore, ??
 
 ## Description:
-- Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turns out the AMD on windows is still limited even with DirectML, because that only works on certain AMD hardware with windows. So we are reverting to llama.cpp, and inadvertantly finding llama.cpp does now infact feature vulkan, and has been for a while, this saves the project for me, but also makes me wonder why ollama is not using this, as it uses llamacpp binaries too doesnt it?
+- Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turned out the AMD on windows is still limited even with DirectML because it requires ROCm. However, as it turns out, there are Vulkan versions of llama.cpp, I have done stuff with llama.cpp before.
 
 ### Features:
 - Gpu-Compatibility :- Runs on Amd (inc non-ROCm) through new Vulkan Llama.cpp Binaries.
