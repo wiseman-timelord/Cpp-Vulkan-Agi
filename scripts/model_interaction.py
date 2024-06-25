@@ -1,16 +1,7 @@
 # .\scripts\model_interaction.py - for interaction with the models.
 
 import subprocess
-from scripts.utility_script import monitor_vram_usage, unload_models_from_gpu
-
-def monitor_resources(max_memory_usage, use_gpu):
-    if use_gpu:
-        instance = get_vulkan_instance()
-        physical_device = get_physical_device(instance)
-        return monitor_vram_usage(instance, physical_device, max_memory_usage)
-    else:
-        # Implement CPU memory monitoring here
-        pass
+from scripts.utility_script import monitor_resources, manage_models_in_gpu
 
 def run_llama_cli(cpp_binary_path, model_path, prompt=None, max_memory_usage=None, use_gpu=True):
     command = [
@@ -33,7 +24,7 @@ def run_llama_cli(cpp_binary_path, model_path, prompt=None, max_memory_usage=Non
         success, usage = monitor_resources(max_memory_usage, use_gpu)
         if not success:
             print(f"The maximum memory allowance was exceeded, model un-loaded!")
-            unload_models_from_gpu()
+            manage_models_in_gpu(unload=True)
             return f"The maximum memory allowance was exceeded, model un-loaded! (Usage: {usage}%)"
         
         try:
@@ -42,13 +33,3 @@ def run_llama_cli(cpp_binary_path, model_path, prompt=None, max_memory_usage=Non
         except subprocess.CalledProcessError as e:
             print(f"Error running llama CLI: {e}")
             return None
-
-def generate_response(cpp_binary_path, agent, user_input, chat_history, max_memory_usage, use_gpu=True):
-    prompt = "You are a helpful assistant.\n" + "\n".join([f"User: {msg[0]}\nAgent: {msg[1]}" for msg in chat_history]) + f"\nUser: {user_input}"
-    
-    response = run_llama_cli(cpp_binary_path, agent, prompt, max_memory_usage, use_gpu)
-    if response:
-        chat_history.append((user_input, response.strip()))
-    else:
-        chat_history.append((user_input, "Failed to generate response."))
-    return chat_history

@@ -1,8 +1,9 @@
 # .\main_script.py - the main script.
 
 import os
+import time
 from scripts.utility_script import (
-    load_config, check_model_paths, load_models, unload_models, VulkanModel, run_llama_cli
+    load_config, check_model_paths, manage_models_in_ram, manage_models_in_gpu, run_llama_cli, monitor_resources
 )
 
 def main():
@@ -21,28 +22,32 @@ def main():
         print("Check Modelfile Locations Are Correct!")
         return
 
-    models = load_models(chat_model, instruct_model, code_model)
+    models = manage_models_in_ram([chat_model, instruct_model, code_model])
     print("Models Loaded To System RAM.")
 
-    vulkan_model_instance = VulkanModel(model_path=chat_model)
-
-    if not vulkan_model_instance.load_model_to_gpu():
+    if not manage_models_in_gpu(chat_model, max_memory_usage=max_memory_usage):
         print("Failed to load chat model to GPU.")
         return
 
     print("Chat Model Loaded On GPU.")
 
-    response = run_llama_cli(
-        "./libraries/llama-bin-win-vulkan-x64/llama-cli.exe", chat_model, max_memory_usage=max_memory_usage, use_gpu=True
-    )
-    if response:
-        print(response)
-    else:
-        print("Failed to get response from the model.")
+    while True:
+        success, usage = monitor_resources(max_memory_usage, use_gpu=True)
+        if not success:
+            print(f"The maximum memory allowance was exceeded, unloading models! (Usage: {usage}%)")
+            manage_models_in_ram(models, unload=True)
+            manage_models_in_gpu(unload=True)
+            break
 
-    unload_models(models)
+        response = run_llama_cli(
+            "./libraries/llama-bin-win-vulkan-x64/llama-cli.exe", chat_model, max_memory_usage=max_memory_usage, use_gpu=True
+        )
+        if response:
+            print(response)
+        else:
+            print("Failed to get response from the model.")
 
-    vulkan_model_instance.unload_model_from_gpu()
+        time.sleep(1)  # Monitor every second
 
 if __name__ == "__main__":
     main()
