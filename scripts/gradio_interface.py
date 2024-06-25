@@ -1,5 +1,3 @@
-# .\scripts\gradio_interface.py - for, gradio and interface, code.
-
 import gradio as gr
 from scripts.utility_script import load_config, save_config, manage_models_in_ram, manage_models_in_gpu, monitor_resources
 from scripts.model_interaction import generate_response
@@ -39,8 +37,8 @@ def setup_gradio_interface():
 
                     save_settings_btn.click(
                         lambda chat_model, instruct_model, code_model, max_memory: save_config(
-                            {"chat_model_used": chat_model, "instruct_model_used": instruct_model, "code_model_used": code_model},
-                            max_memory
+                            {"chat_model_used": chat_model, "instruct_model_used": instruct_model, "code_model_used": code_model, "maximum_memory_usage": max_memory},
+                            './data/config_general.json'
                         ),
                         [chat_model_input, instruct_model_input, code_model_input, max_memory_slider],
                         settings_output
