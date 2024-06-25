@@ -38,7 +38,7 @@ Project Status: Alpha; under development. It does not work yet....
 ----------------------------------------------------
 HUMAN:
 ---------------------------------------------------
-I want you to update the files for the interface we are using, please do X to the Y file, then produce relating required updates for the other relevant code, then save the file, and restart the program.
+I want you to update the files for the interface we are using, please do X to the Y script, then produce relating required updates for the other relevant code, then save the file, and restart the interface.
 ----------------------------------------------------
 --------------------------------------------
 CHAT:
