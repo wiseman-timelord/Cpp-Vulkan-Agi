@@ -49,7 +49,7 @@ Input;
 --------------------------------------------
 AI-CHAT:
 -------------------------------------------
-Hello Humanoid, what is it specifically we are doing to the interface?
+Hello Humanoid, what is it specifically we are doing to the interface of QAgent-CppAgi?
 Hmm interesting idea, however this is not completely covered by my training data, and will require, research and a plan and an assessment of the files.
 Produced a web-research, data from C is too large, it must be consolidated first. 
 Ordering AI-INST to assemble the data. 
