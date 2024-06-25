@@ -38,14 +38,24 @@ Project Status: Alpha; under development. It does not work yet....
 ----------------------------------------------------
 HUMANOID:
 ---------------------------------------------------
-I want you to update the files for the interface we are using, please do X to the Y script, then produce relating required updates for the other relevant code, then save the file, and restart the interface.
+Log;
+I want you to update the files for the interface we are using.
+Please do X to the Y script, then produce relating required updates for the other relevant code, then save the file.
+When you are done shutdown the interface.
+-----------------------------------------------------
+Input;
+...
 ----------------------------------------------------
 --------------------------------------------
 AI-CHAT:
 -------------------------------------------
-Research: Found relevant training data, it says A. 
-Produced relevant web-research for doing X to the Y script.
+Hello Humanoid, what is it specifically we are doing to the interface?
+Hmm interesting idea, however this is not completely covered by my training data, and will require, research and a plan and an assessment of the files.
+Produced a web-research, data from C is too large, it must be consolidated first. 
 Ordering AI-INST to assemble the data from C. 
+New User Input, project interrupted, assessing Input.
+Noted, after the final processes of, checking and saving the file, I will shutdown.
+Continuing project: do X to the Y script.
 Assessing Data, the research stated B.
 Ordering AI-CODE to produce the relevant updates using information D.
 Operation has been completed, file is saved.
