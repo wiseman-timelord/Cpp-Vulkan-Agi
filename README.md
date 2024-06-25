@@ -52,13 +52,13 @@ AI-CHAT:
 Hello Humanoid, what is it specifically we are doing to the interface?
 Hmm interesting idea, however this is not completely covered by my training data, and will require, research and a plan and an assessment of the files.
 Produced a web-research, data from C is too large, it must be consolidated first. 
-Ordering AI-INST to assemble the data from C. 
-New User Input, project interrupted, assessing Input.
-Noted, after the final processes of, checking and saving the file, I will shutdown.
-Continuing project: do X to the Y script.
+Ordering AI-INST to assemble the data. 
+New Input, project interrupted, assessing Input.
+Noted, after the script is checked and saved as a file, then I will ensure to shutdown appropriately.
+Continuing with project: do X to the Y script.
 Assessing Data, the research stated B.
-Ordering AI-CODE to produce the relevant updates using information D.
-Operation has been completed, file is saved.
+Ordering AI-CODE to produce the updates.
+Project completed successfully.
 Unloading all loaded models.
 Shutting down interface in 10 seconds.
 --------------------------------------------
