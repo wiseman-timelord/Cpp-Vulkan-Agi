@@ -37,22 +37,31 @@ Project Status: Alpha; under development. It does not work yet....
 ===== Some Impressive Bot Management Program =======
 
 HUMAN:
-I neez some fags, make a plan, and get me some, so I can
-sit in my chair, and finish my project without thinking
-about how life is passing by.
+I want you to update the files for the interface we are using, please do X to the Y file, then produce relating required updates for the other relevant code, then save the file, and restart the program.
 --------------------------------------------
-ROBOT1:
-My prime directive is to go to the shops,
-and buy 10 fags, do you compute.
+CHAT:
+-------------------------------------------
+Research: Found relevant training data, it says A. 
+Produced relevant web-research for doing X to the Y script, it said B.
+Ordering INSTRUCT model to assemble some data from C and pass it on to CODE. Then ordering CODE to produce the relevant updates using information D.
+--------------------------------------------
 -----------------------------------------
-ROBOT2:
-Designing fake hair and beard for ROBOT1, so it can blend-in
-with the other humans, during travel to the shop.
+INSTRUCT:
+--------------------------------------------
+New order from CHAT, getting on with order.
+Data Assembled, and Passed on to CODE.
+Functions replaced in script and file saved.
+Passing complete script to CODE.
 ----------------------------------------
-ROBOT3:
-By growing tobacco, we will have our own source of
-tobacco in a few months, and no-longer be exploited.
-
+--------------------------------------------
+CODE:
+----------------------------------------------------
+Analyzing Current Code and relevant information.
+Analyzing current code and producing updates.
+Updates passed on to INSTRUCT.
+Script checked for errors, and passed.
+Notifying CHAT of updated script Y.
+------------------------------------------------
 ```
 - Standalone Configurator, for pre-launch setup...
 ```
