@@ -110,6 +110,8 @@ Selection; Choose Options = 1-2, Exit Config = X:
 ### Instructions:
 - Releases are considered non-working, but here are the early instructions...
 1. Ensure you are on Windows, and are not using Wsl to run python, unless you know some other method of emulating windows python.
+2. Go to AMD Adrenalin settings, Performance>Metrics>Tracking>GPU Memory>(o), then on left is GPU Ram usage.
+3. You should ensure that, for example, if you have 7GB free, then you would want models that are ~5-6GB in size. 
 2. Ensure you have Installed the requirements detailed above, for, C++ Build Tools and Python.
 3. Download [Qwen-Agent Framework](https://github.com/QwenLM/Qwen-Agent) into a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files directly to that folder.
 4. Drop in my scripts for QwenAgent-Interface directly into "Qwen-Agent-0.0.5+" preserving file structure, and relevantly over-writing the "requirements.txt".
@@ -117,6 +119,7 @@ Selection; Choose Options = 1-2, Exit Config = X:
 6. Run "QwenAgent-Launcher.Bat" to start the session. 
 
 ### Notes:
+- Go to AMD Adrenalin settings, Performance>Metrics>Tracking>GPU Memory>(o), then on left is GPU Ram usage.
 - Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
 
 ## Credits:
