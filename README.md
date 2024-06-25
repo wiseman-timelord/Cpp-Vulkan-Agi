@@ -33,7 +33,7 @@ Project Status: Alpha; under development. It does not work yet....
 ### Preview:
 - Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
 ```
-============ QwenAgend-Interface ==============
+=============== QAgent-CppAgi ================
 ----------------------------------------------------
 HUMANOID:
 ---------------------------------------------------
