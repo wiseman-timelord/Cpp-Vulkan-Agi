@@ -3,7 +3,7 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
-- next version of utility_general.py will be big, ensure to refractor code for loading/unloading models to a new script ".\scripts\model_manager.py", specifically for loading/saving models to gpu/system ram.
+- logic and sanity Check.
 - check out the new blueprint for the interface below, try to use only 3 cases for the models roles, and make them more general, this will save on many characters, and may actually work.
 - given the example of the flow of responses, ensure there is some kind of simulated interaction between the models presented to the user on the frontent, and that the relating interactions have relating sound actions and prompting, to produce the desired results in the backend. This will require dynamic printed text for each situation relating to the current, options and tools, available to the AI and general operation of typical projects.
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
