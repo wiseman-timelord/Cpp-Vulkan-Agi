@@ -1,5 +1,7 @@
+# .\main_launch.py - the main script.
+
 import os
-from scripts.utility_general import load_config
+from scripts.utility_general import load_config, check_model_paths, load_models, unload_models, load_model_to_gpu
 from scripts.model_interaction import run_llama_cli
 
 def main():
@@ -9,22 +11,31 @@ def main():
         return
 
     config = load_config(config_path)
-    current_model = config.get("current_model")
-    processing_method_used = config.get("processing_method_used")
+    chat_model = config.get("chat_model_used")
+    instruct_model = config.get("instruct_model_used")
+    code_model = config.get("code_model_used")
     max_memory_usage = config.get("maximum_memory_usage")
 
-    if not current_model or not processing_method_used:
-        print("Configuration not set properly. Please run main_config.py first.")
+    if not check_model_paths([chat_model, instruct_model, code_model]):
+        print("Check Modelfile Locations Are Correct!")
         return
 
-    # Determine the cpp_binary_path based on the processing method
-    cpp_binary_path = f'./libraries/llama-bin-win-{processing_method_used.lower()}-x64/llama-cli.exe'
+    models = load_models(chat_model, instruct_model, code_model)
+    print("Models Loaded To System RAM.")
 
-    response = run_llama_cli(cpp_binary_path, current_model, max_memory_usage=max_memory_usage, use_gpu='vulkan' in processing_method_used.lower())
+    if not load_model_to_gpu(chat_model):
+        print("Failed to load chat model to GPU.")
+        return
+    
+    print("Chat Model Loaded On GPU.")
+
+    response = run_llama_cli("./libraries/llama-bin-win-vulkan-x64/llama-cli.exe", chat_model, max_memory_usage=max_memory_usage, use_gpu=True)
     if response:
         print(response)
     else:
         print("Failed to get response from the model.")
+
+    unload_models(models)
 
 if __name__ == "__main__":
     main()

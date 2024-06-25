@@ -1,4 +1,4 @@
-# .\scripts\agent_manager.py
+# .\scripts\agent_manager.py - for code related to agents.
 
 from qwen_agent.agents import Assistant, BasicDocQA
 from qwen_agent.tools.base import BaseTool, register_tool
@@ -10,6 +10,7 @@ import uuid
 import os
 import json5
 from typing import Dict, List, Optional, Tuple, Union
+from scripts.utility_general import load_config
 
 def create_agent(agent_type, model_name, system_instruction, tools, files=None):
     llm_cfg = {
@@ -125,28 +126,22 @@ def register_tools():
             
             return result if result.strip() else 'Finished execution.'
 
-def setup_agents(model_name, cpp_binary_path, gpu_memory_percentage):
+def setup_agents():
+    config = load_config('./data/config_general.json')
+
+    chat_model = config.get('chat_model_used')
+    instruct_model = config.get('instruct_model_used')
+    code_model = config.get('code_model_used')
+
     register_tools()
     
-    agent_configs = {
-        'Manager': {
-            'temperature': 0.5, 'top_p': 0.85, 'repeat_penalty': 1.2, 'top_k': 50
-        },
-        'Coder': {
-            'temperature': 0.3, 'top_p': 0.7, 'repeat_penalty': 1.1, 'top_k': 20
-        },
-        'Websearch': {
-            'temperature': 0.7, 'top_p': 0.9, 'repeat_penalty': 1.1, 'top_k': 50
-        },
-        'Consolidator': {
-            'temperature': 0.5, 'top_p': 0.85, 'repeat_penalty': 1.3, 'top_k': 50
-        },
-        'Creative': {
-            'temperature': 0.9, 'top_p': 0.95, 'repeat_penalty': 1.0, 'top_k': 100
-        },
-        'Analyst': {
-            'temperature': 0.6, 'top_p': 0.9, 'repeat_penalty': 1.2, 'top_k': 50
-        }
+    agent_model_mapping = {
+        'Manager': chat_model,
+        'Coder': code_model,
+        'Websearch': chat_model,
+        'Consolidator': instruct_model,
+        'Creative': chat_model,
+        'Analyst': instruct_model
     }
 
     system_instructions = {
@@ -162,7 +157,7 @@ def setup_agents(model_name, cpp_binary_path, gpu_memory_percentage):
     file_paths = ['./examples/resource/doc.pdf']
 
     agents = {}
-    for agent_type, cfg in agent_configs.items():
+    for agent_type, model_name in agent_model_mapping.items():
         agents[agent_type] = create_agent(agent_type, model_name, system_instructions[agent_type], common_tools, file_paths)
     
     return agents

@@ -1,58 +1,64 @@
+# .\scripts\menu_display.py - for, display and interface, code.
+
 import gradio as gr
-from scripts.utility_general import load_config_wrapper, save_config_wrapper, get_system_stats
+from scripts.utility_general import load_config_wrapper, save_config_wrapper, load_models, unload_models
 from scripts.model_interaction import generate_response
 
-def display_task_management(agent_type, tasks):
-    task_overview = f"Agent: {agent_type}\nTasks:\n"
-    for task in tasks:
-        task_overview += f"- {task}\n"
-    return task_overview
+def setup_gradio_interface():
+    config = load_config_wrapper()
 
-def setup_gradio_interface(agents, cpp_binary_path, max_memory_usage):
     with gr.Blocks() as demo:
         with gr.Row():
             with gr.Column(scale=2):
                 chatbot = gr.Chatbot(height=500)
                 user_input = gr.Textbox(show_label=False, placeholder="Type your message here...").style(container=False)
                 submit_btn = gr.Button("Send")
-                agent_selector = gr.Dropdown(choices=list(agents.keys()), label="Select Agent", value='Manager')
+                agent_selector = gr.Dropdown(choices=["Chat", "Instruct", "Code"], label="Select Agent", value='Chat')
                 submit_btn.click(
-                    lambda agent_type, user_input, chat_history: generate_response(cpp_binary_path, agents[agent_type], user_input, chat_history, max_memory_usage, use_gpu='vulkan' in cpp_binary_path),
+                    lambda agent_type, user_input, chat_history: generate_response("./libraries/llama-bin-win-vulkan-x64/llama-cli.exe", config[f"{agent_type.lower()}_model_used"], user_input, chat_history, config["maximum_memory_usage"], use_gpu=True),
                     [agent_selector, user_input, chatbot], chatbot
                 )
-            with gr.Column(scale=1):
-                task_management = gr.Markdown(value="No tasks yet.")
-                submit_btn.click(
-                    lambda agent_type: display_task_management(agent_type, ["Task 1", "Task 2"]),
-                    agent_selector, task_management
-                )
-            with gr.Column(scale=1):
-                stats_display = gr.Markdown(value="Fetching system stats...")
-                def update_stats():
-                    cpu_usage, memory_used, memory_total = get_system_stats()
-                    return f"CPU Usage: {cpu_usage}%\nSystem Memory Used: {memory_used:.2f}GB/{memory_total:.2f}GB"
-                stats_btn = gr.Button("Update Stats")
-                stats_btn.click(update_stats, [], stats_display)
 
-            # Settings section
             with gr.Column(scale=1):
                 settings_btn = gr.Button("Settings")
                 settings_output = gr.Markdown(value="")
-                current_model, processing_method, max_memory_usage = load_config_wrapper()
+
                 with gr.Accordion("Settings", open=False) as settings_menu:
-                    model_input = gr.Textbox(label="Model Used", value=current_model)
-                    processing_method_dropdown = gr.Dropdown(choices=["AVX", "AVX2", "AVX512", "OpenBlas", "Vulkan"], label="Processing Method", value=processing_method)
-                    max_memory_slider = gr.Slider(1, 99, step=1, label="Maximum Load", value=max_memory_usage)
+                    chat_model_input = gr.Textbox(label="Chat Model Path", value=config["chat_model_used"])
+                    instruct_model_input = gr.Textbox(label="Instruct Model Path", value=config["instruct_model_used"])
+                    code_model_input = gr.Textbox(label="Code Model Path", value=config["code_model_used"])
+                    max_memory_slider = gr.Slider(1, 99, step=1, label="Maximum Memory Usage", value=config["maximum_memory_usage"])
                     save_settings_btn = gr.Button("Save Settings")
+
                     save_settings_btn.click(
-                        save_config_wrapper,
-                        [model_input, processing_method_dropdown, max_memory_slider],
+                        lambda chat_model, instruct_model, code_model, max_memory: save_config_wrapper(
+                            {"chat_model_used": chat_model, "instruct_model_used": instruct_model, "code_model_used": code_model},
+                            "Vulkan",
+                            max_memory
+                        ),
+                        [chat_model_input, instruct_model_input, code_model_input, max_memory_slider],
                         settings_output
                     )
+
                 settings_btn.click(lambda: "", [], settings_output)
+
+            with gr.Column(scale=1):
+                load_btn = gr.Button("Load and Start")
+                unload_btn = gr.Button("Unload")
+
+                models = []
+
+                load_btn.click(
+                    lambda: models.extend(load_models(config["chat_model_used"], config["instruct_model_used"], config["code_model_used"])),
+                    [], settings_output
+                )
+                unload_btn.click(lambda: unload_models(models), [], settings_output)
 
     return demo
 
-def launch_gradio_interface(agents, cpp_binary_path, max_memory_usage):
-    demo = setup_gradio_interface(agents, cpp_binary_path, max_memory_usage)
+def launch_gradio_interface():
+    demo = setup_gradio_interface()
     demo.launch()
+
+if __name__ == "__main__":
+    launch_gradio_interface()
