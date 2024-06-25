@@ -2,8 +2,7 @@ import time, os, subprocess, requests, shutil, zipfile
 from tqdm import tqdm
 
 LLAMA_VERSION = "b3206"
-ADL_VERSION = "17.1"
-SUFFIXES = ["vulkan-x64", "openblas-x64", "avx2-x64", "avx-x64", "avx512-x64"]
+SUFFIXES = ["vulkan-x64"]
 
 def print_install_title():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -24,8 +23,8 @@ def display_main_menu():
         print(pad_center("1. Install Requirements", window_width))
         print(pad_center("(pip install -r requirements.txt)\n", window_width))
         print(pad_center("2. Install GitHub Libraries", window_width))
-        print(pad_center(f"(Llama.Cpp: {LLAMA_VERSION}, Amd Adl: {ADL_VERSION})", window_width))
-        print("\n\n\n\n\n\n\n" + "-" * window_width)
+        print(pad_center(f"(Llama.Cpp: {LLAMA_VERSION})", window_width))
+        print("\n\n\n\n\n\n" + "-" * window_width)
         print("Selection; Choose Options = 1-2, Exit Config = X:", end=' ')
 
         main_selection = get_user_selection()
@@ -93,10 +92,6 @@ def install_github_libraries():
     llama_urls = [f"https://github.com/ggerganov/llama.cpp/releases/download/{LLAMA_VERSION}/llama-{LLAMA_VERSION}-bin-win-{suffix}.zip" for suffix in SUFFIXES]
     llama_destinations = [f".\\libraries\\llama-bin-win-{suffix}\\" for suffix in SUFFIXES]
 
-    adl_url = f"https://github.com/GPUOpen-LibrariesAndSDKs/display-library/archive/refs/tags/{ADL_VERSION}.zip"
-    adl_temp_destination = ".\\libraries\\amdadl-display-library-temp\\"
-    adl_destination = ".\\libraries\\amdadl-display-library\\"
-
     # Install Llama binaries
     for suffix, url, dest in zip(SUFFIXES, llama_urls, llama_destinations):
         binary_path = os.path.join(dest, "llama-cli.exe")
@@ -113,21 +108,6 @@ def install_github_libraries():
                 shutil.move(extracted_dir, dest)
         except Exception as e:
             print(f"Failed to download or extract {url}. Reason: {e}")
-
-    # Install AMD ADL library
-    if os.path.exists(adl_destination):
-        print(f"AMD ADL library already exists at {adl_destination}, skipping download.")
-    else:
-        print(f"Downloading and extracting {adl_url} to {adl_temp_destination}...")
-        os.makedirs(adl_temp_destination, exist_ok=True)
-        try:
-            download_and_extract(adl_url, adl_temp_destination)
-            extracted_dir = os.path.join(adl_temp_destination, f"display-library-{ADL_VERSION}")
-            if os.path.exists(extracted_dir):
-                shutil.move(extracted_dir, adl_destination)
-            shutil.rmtree(adl_temp_destination)
-        except Exception as e:
-            print(f"Failed to download or extract {adl_url}. Reason: {e}")
 
     # Clean up cache directory
     for filename in os.listdir('.\\cache'):
