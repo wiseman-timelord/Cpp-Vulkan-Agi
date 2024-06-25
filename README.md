@@ -3,7 +3,7 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
-- next version of utility_general.py will be big, ensure to refractor code for loading/unloading models to a new script ".\scripts\model_manager.py", specifically for loading/saving models.
+- next version of utility_general.py will be big, ensure to refractor code for loading/unloading models to a new script ".\scripts\model_manager.py", specifically for loading/saving models to gpu/system ram.
 - rename "menu_display" to "display_gradio", in find in files replacement.
 - need to find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
