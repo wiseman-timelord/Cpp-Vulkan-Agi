@@ -3,6 +3,8 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
+- next version of utility_general.py will be big, ensure to refractor code for loading/unloading models to a new script ".\scripts\model_manager.py", specifically for loading/saving models.
+- rename "menu_display" to "display_gradio", in find in files replacement.
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further, and at the same correct any errors.
