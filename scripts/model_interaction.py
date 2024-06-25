@@ -1,7 +1,16 @@
-# .\scripts\menu_display.py - for interaction with the models.
+# .\scripts\model_interaction.py - for interaction with the models.
 
 import subprocess
-from scripts.utility_general import monitor_resources
+from scripts.utility_script import monitor_vram_usage, unload_models_from_gpu
+
+def monitor_resources(max_memory_usage, use_gpu):
+    if use_gpu:
+        instance = get_vulkan_instance()
+        physical_device = get_physical_device(instance)
+        return monitor_vram_usage(instance, physical_device, max_memory_usage)
+    else:
+        # Implement CPU memory monitoring here
+        pass
 
 def run_llama_cli(cpp_binary_path, model_path, prompt=None, max_memory_usage=None, use_gpu=True):
     command = [
@@ -24,6 +33,7 @@ def run_llama_cli(cpp_binary_path, model_path, prompt=None, max_memory_usage=Non
         success, usage = monitor_resources(max_memory_usage, use_gpu)
         if not success:
             print(f"The maximum memory allowance was exceeded, model un-loaded!")
+            unload_models_from_gpu()
             return f"The maximum memory allowance was exceeded, model un-loaded! (Usage: {usage}%)"
         
         try:
