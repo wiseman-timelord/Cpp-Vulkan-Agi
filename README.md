@@ -34,10 +34,12 @@ Project Status: Alpha; under development. It does not work yet....
 ### Preview:
 - Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
 ```
-===== Some Impressive Bot Management Program =======
-
+============ QwenAgend-Interface ==============
+----------------------------------------------------
 HUMAN:
+---------------------------------------------------
 I want you to update the files for the interface we are using, please do X to the Y file, then produce relating required updates for the other relevant code, then save the file, and restart the program.
+----------------------------------------------------
 --------------------------------------------
 CHAT:
 -------------------------------------------
