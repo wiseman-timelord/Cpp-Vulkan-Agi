@@ -1,4 +1,4 @@
-# QwenAgent-Interface
+# QAgent-CppAgi
 Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
@@ -13,7 +13,6 @@ Project Status: Alpha; under development. It does not work yet....
 3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
 4. investigave correct operation through gradio interface, ensuare all features working correctly.
 5. Improve and Expand...
-
 - agents able to work in parrellel, each having, a copy of the same model.
 - Further updates to UI, to integrate all improvements somehow.
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
@@ -36,12 +35,12 @@ Project Status: Alpha; under development. It does not work yet....
 ```
 ============ QwenAgend-Interface ==============
 ----------------------------------------------------
-HUMAN:
+HUMANOID:
 ---------------------------------------------------
 I want you to update the files for the interface we are using, please do X to the Y script, then produce relating required updates for the other relevant code, then save the file, and restart the interface.
 ----------------------------------------------------
 --------------------------------------------
-CHAT:
+AI CHAT:
 -------------------------------------------
 Research: Found relevant training data, it says A. 
 Produced relevant web-research for doing X to the Y script, it said B.
@@ -50,7 +49,7 @@ Operation has been completed, file is reported saved.
 Unloading models, then shutting down interface, commencing in 10 seconds...
 --------------------------------------------
 -----------------------------------------
-INSTRUCT:
+AI INSTRUCT:
 --------------------------------------------
 New order from CHAT, getting on with order.
 Data Assembled, and Passed on to CODE.
@@ -58,7 +57,7 @@ Functions replaced in script and file saved.
 Passing complete script to CODE.
 ----------------------------------------
 --------------------------------------------
-CODE:
+AI CODE:
 ----------------------------------------------------
 Analyzing Current Code and relevant information.
 Analyzing current code and producing updates.
