@@ -40,30 +40,32 @@ HUMANOID:
 I want you to update the files for the interface we are using, please do X to the Y script, then produce relating required updates for the other relevant code, then save the file, and restart the interface.
 ----------------------------------------------------
 --------------------------------------------
-AI CHAT:
+AI-CHAT:
 -------------------------------------------
 Research: Found relevant training data, it says A. 
-Produced relevant web-research for doing X to the Y script, it said B.
-Ordering INSTRUCT model to assemble some data from C and pass it on to CODE. Then ordering CODE to produce the relevant updates using information D.
-Operation has been completed, file is reported saved.
-Unloading models, then shutting down interface, commencing in 10 seconds...
+Produced relevant web-research for doing X to the Y script.
+Ordering AI-INST to assemble the data from C. 
+Assessing Data, the research sstated B.
+Ordering AI-CODE to produce the relevant updates using information D.
+Operation has been completed, file is saved.
+Unloading models, then shutting down interface, starting in 10 seconds.
 --------------------------------------------
 -----------------------------------------
-AI INSTRUCT:
+AI-INST:
 --------------------------------------------
-New order from CHAT, getting on with order.
-Data Assembled, and Passed on to CODE.
+New order from AI-CHAT, getting on with order.
+Data Assembled, as instructed.
+Data Passed on to AI-CHAT.
 Functions replaced in script and file saved.
-Passing complete script to CODE.
+Passing complete script to AI-CODE.
 ----------------------------------------
 --------------------------------------------
-AI CODE:
+AI-CODE:
 ----------------------------------------------------
 Analyzing Current Code and relevant information.
 Analyzing current code and producing updates.
-Updates passed on to INSTRUCT.
+Updates passed on to AI-INST.
 Script checked for errors, and passed.
-Notifying CHAT of updated script Y.
 ------------------------------------------------
 ```
 - Standalone Configurator, for pre-launch setup...
