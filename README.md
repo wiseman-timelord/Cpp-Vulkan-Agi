@@ -81,6 +81,8 @@ Selection; Choose Options = 1-2, Exit Config = X:
 ```
 
 ## Requirements:
+- Vulkan compatible Graphics Card with 8GB+, a graphics card with enough vram to individually load the models you choose (including any display usage, in which case I advise, solid color desktop and shut down media intensive apps).
+- System Memory 32GB+, enough system memory to load all 3 of the models you choose AT THE SAME TIME.
 - Python, Developed on [Python 3.12.x](https://www.python.org/downloads/release/python-3120/?ref=upstract.com) Non-WSL, untested on others.
 - [Windows](https://www.ebay.co.uk/b/bn_2683753), most will work, but its developed on Windows 10.
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with "Desktop development with C++" installed, so pip can install things like `pyamdgpuinfo`.
