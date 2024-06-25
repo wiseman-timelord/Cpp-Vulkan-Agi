@@ -31,7 +31,7 @@ Project Status: Alpha; under development. It does not work yet....
 - Monitoring of system memory usage with auto-unload, to ensure system is not over-loaded by data.
  
 ### Preview:
-- Dunno how I am going to show the main program, possibly get a image to text converter or resurrect my webspace, here is improvised content to demonstrate the concept...
+- This is a purely conceptual blueprint, at this stage.
 ```
 =============== QAgent-CppAgi ================
 ----------------------------------------------------
