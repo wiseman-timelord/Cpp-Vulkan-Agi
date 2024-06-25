@@ -46,6 +46,8 @@ CHAT:
 Research: Found relevant training data, it says A. 
 Produced relevant web-research for doing X to the Y script, it said B.
 Ordering INSTRUCT model to assemble some data from C and pass it on to CODE. Then ordering CODE to produce the relevant updates using information D.
+Operation has been completed, file is reported saved.
+Shutting down interface in 10 seconds...
 --------------------------------------------
 -----------------------------------------
 INSTRUCT:
