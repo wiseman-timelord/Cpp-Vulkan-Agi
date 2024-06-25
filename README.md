@@ -3,7 +3,6 @@ Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
 1. Completing the scripts...
-- if we only monitor system memory usage, then by using only vulkan, would mean the program is compatible with any vulkan card, though it will be up to the user to ensure the graphics card is able to take the load of each model individually (ie, ensure to use solid color on desktop, and dont load any games, if its a card you are using). Maybe there is a library for monitoring the GPU though vulkan?
 - Streamline the installer to only install, requirements and the vulkan llama.cpp library. 
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
@@ -81,7 +80,7 @@ Selection; Choose Options = 1-2, Exit Config = X:
 ```
 
 ## Requirements:
-- Vulkan compatible Graphics Card with 8GB+, a graphics card with enough vram to individually load the models you choose (including any display usage, in which case I advise, solid color desktop and shut down media intensive apps).
+- Vulkan compatible Graphics Card with 8GB+, a graphics card with enough vram to individually load the models you choose (there is no gpu selection, so I advise, solid color desktop and shut down media intensive apps).
 - System Memory 32GB+, enough system memory to load all 3 of the models you choose AT THE SAME TIME.
 - Python, Developed on [Python 3.12.x](https://www.python.org/downloads/release/python-3120/?ref=upstract.com) Non-WSL, untested on others.
 - [Windows](https://www.ebay.co.uk/b/bn_2683753), most will work, but its developed on Windows 10.
