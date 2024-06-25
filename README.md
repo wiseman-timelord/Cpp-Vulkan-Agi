@@ -28,7 +28,7 @@ Project Status: Alpha; under development. It does not work yet....
 - Multi-Model :- using 3 gguf models, chat, instruct, code, loaded to Ram at start, then GPU on demand.
 - Simple Operation :- No requirement of, Ollama or LMStudio, as using Llama.cpp pre-compiled binaries.
 - Standalone Installer Tool, for pre-launch installation, for pip requirements and github libraries.
-- Monitoring of system memory usage with auto-unload, to ensure system is not over-loaded by data.
+- Monitoring of, VRam and Ram, usage with auto-unload, to prevent overload, offloading layers is being worked on.
  
 ### Preview:
 - This is a purely conceptual blueprint, at this stage.
