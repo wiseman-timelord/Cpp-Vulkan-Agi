@@ -62,7 +62,6 @@ def setup_gradio_interface():
 
     return demo
 
-
 def launch_gradio_interface():
     demo = setup_gradio_interface()
     demo.launch()
