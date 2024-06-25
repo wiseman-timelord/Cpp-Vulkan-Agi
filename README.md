@@ -4,8 +4,8 @@ Project Status: Alpha; under development. It does not work yet....
 ### Current Work
 1. Completing the scripts...
 - next version of utility_general.py will be big, ensure to refractor code for loading/unloading models to a new script ".\scripts\model_manager.py", specifically for loading/saving models to gpu/system ram.
-- rename "menu_display" to "display_gradio", in find in files replacement.
-- need to find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
+- check out the new blueprint for the interface below, try to use only 3 cases for the models roles, and make them more general, this will save on many characters, and may actually work.
+- given the example of the flow of responses, ensure there is some kind of simulated interaction between the models presented to the user on the frontent, and that the relating interactions have relating sound actions and prompting, to produce the desired results in the backend. This will require dynamic printed text for each situation relating to the current, options and tools, available to the AI and general operation of typical projects.
 - Determine if all the code is implemented correctly, by going over qwen-agent tutorials/examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further, and at the same correct any errors.
@@ -13,6 +13,7 @@ Project Status: Alpha; under development. It does not work yet....
 3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
 4. investigave correct operation through gradio interface, ensuare all features working correctly.
 5. Improve and Expand...
+- need to find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
 - agents able to work in parrellel, each having, a copy of the same model.
 - Further updates to UI, to integrate all improvements somehow.
 - After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
