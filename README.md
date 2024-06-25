@@ -24,14 +24,13 @@ Project Status: Alpha; under development. It does not work yet....
 - Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turned out the AMD on windows is still limited even with DirectML because it requires ROCm. However, as it turns out, there are Vulkan versions of llama.cpp, I have done stuff with llama.cpp before.
 
 ### Features:
-1. **Main Script Execution**: Initialization and Launch (.\main_launch.py): Reads configuration, and launches the program/gradio interface, the display is then the gradio interface with immediate options for, Settings, Load all Models, Exit Program.
+1. **Main Script Execution**: Initialization and Launch, reads configuration, and launches the program/gradio interface, the display is then the gradio interface with immediate options for, Settings, Load all Models, Exit Program.
 2. **Model Interaction**: There are 3 modes, Chat, Instruct, Code, all of which are loaded so system ram, then when they are required they are individually exclusively loaded to VRam for use with the applicably relating agents.
-3. **Gradio Interface**: User Interaction through a multi-panel display, allowing display of, chat, ai actions, project & task details, as well as configuration of settings. 
-4. **Agent Management**: Agent Setup (agent_manager.py): Defines and configures various agent types, and registers tools for tasks like code execution and interpretation. As said, each agent has a relating theme of assigned model, from  Chat, Instruct, Code.
-5. **Llama.Cpp Integration**: Direct Model Management: Utilizes the Llama.Cpp, this involves options of Vulkan, which allows for, VRam load monitoring and non-ROCm AMD GPU on Windows. All model processing is done through Vulkan.
-6. **Auto Shutdown**: The gradio interface should be displaying the, System RAM and Graphics VRAM, load, this is used by the program to ensure that the CPU/GPU is not over-loaded, if the load hits over "maximum_memory_usage" percent, on either then it will automatically unload all models, to prevent a crash, the user must then, close applications or choose smaller models. 
-7. **Real-time Config**: Via clicking on a settings button, the user is able to change useful settings for the program, such as, models choice for, AI-CHAT, AI-INST, AI-CODE, and also, the "maximum_memory_usage" percent through a slider.
-8. **Standalone Installer**: Standalone Installer Tool (main_install.py). Users install, requirements and llama.cpp, through this to ".\libraries" subdirectories.
+3. **Agent Management**: Agent Setup (agent_manager.py): Defines and configures various agent types, and registers tools for tasks like code execution and interpretation. As said, each agent has a relating theme of assigned model, from  Chat, Instruct, Code.
+4. **Llama.Cpp Integration**: Direct Model Management: Utilizes the Llama.Cpp, this involves options of Vulkan, which allows for, VRam load monitoring and non-ROCm AMD GPU on Windows. All model processing is done through Vulkan.
+5. **Auto Shutdown**: The gradio interface should be displaying the, System RAM and Graphics VRAM, load, this is used by the program to ensure that the CPU/GPU is not over-loaded, if the load hits over "maximum_memory_usage" percent, on either then it will automatically unload all models, to prevent a crash, the user must then, close applications or choose smaller models. 
+6. **Real-time Config**: Via clicking on a settings button, the user is able to change useful settings for the program, such as, models choice for, AI-CHAT, AI-INST, AI-CODE, and also, the "maximum_memory_usage" percent through a slider.
+7. **Standalone Installer**: Standalone Installer Tool (main_install.py). Users install, requirements and llama.cpp, through this to ".\libraries" subdirectories.
  
 ### Preview:
 - This is a purely conceptual blueprint, at this stage.
