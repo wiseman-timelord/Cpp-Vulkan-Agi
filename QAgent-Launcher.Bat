@@ -7,4 +7,4 @@ cd /d "%~dp0"
 python main_script.py
 
 :: Debug
-rem pause
+pause

@@ -2,9 +2,10 @@
 
 import os
 import time
-from scripts.utility_script import (
-    load_config, check_model_paths, manage_models_in_ram, manage_models_in_gpu, run_llama_cli, monitor_resources
-)
+import gradio as gr
+from scripts.utility_script import load_config, check_model_paths, manage_models_in_ram, manage_models_in_gpu, monitor_resources
+from scripts.model_interaction import run_llama_cli
+from scripts.gradio_interface import launch_gradio_interface
 
 def main():
     config_path = './data/config_general.json'
@@ -31,6 +32,8 @@ def main():
 
     print("Chat Model Loaded On GPU.")
 
+    launch_gradio_interface()
+
     while True:
         success, usage = monitor_resources(max_memory_usage, use_gpu=True)
         if not success:
@@ -51,4 +54,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
