@@ -1,4 +1,4 @@
-# QAgent-CppAgi
+# GradioCppQwenAgi
 Project Status: Alpha; under development. It does not work yet....
 
 ### Current Work
@@ -21,16 +21,16 @@ Project Status: Alpha; under development. It does not work yet....
 - New name Possibly, QAgent-CppAgi, QwenAgent-CppCore, ??
 
 ## Description:
-- Currently a project to produce, a, Gradio and QwenAgent and LlamaCpp, based Agent Manager, capable of managing text or code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research etc. Unfortunately it turned out the AMD on windows is still limited even with DirectML because it requires ROCm. However, as it turns out, there are Vulkan versions of llama.cpp, I have done stuff with llama.cpp before.
+- Currently a project to produce, a, Gradio and LlamaCpp, based Agi, capable of, planning and executing, text/code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research, etc. Unfortunately it turned out the AMD on windows is still limited even with DirectML because it requires ROCm, however, as it turns out, there are Vulkan versions of llama.cpp, I have done stuff with llama.cpp before, and there are now other projects where people have done Agi with Llama.cpp.
 
 ### Features:
 1. **Main Script Execution**: Initialization and Launch, reads configuration, and launches the program/gradio interface, the display is then the gradio interface with immediate options for, Settings, Load all Models, Exit Program.
 2. **Model Interaction**: There are 3 modes, Chat, Instruct, Code, all of which are loaded so system ram, then when they are required they are individually exclusively loaded to VRam for use with the applicably relating agents.
-3. **Agent Management**: Agent Setup (agent_manager.py): Defines and configures various agent types, and registers tools for tasks like code execution and interpretation. As said, each agent has a relating theme of assigned model, from  Chat, Instruct, Code.
+3. **Agent Management**: Agent Setup: Defines and configures various agent types, and registers tools for tasks like code execution and interpretation. As said, each agent has a relating theme of assigned model, from  Chat, Instruct, Code.
 4. **Llama.Cpp Integration**: Direct Model Management: Utilizes the Llama.Cpp, this involves options of Vulkan, which allows for, VRam load monitoring and non-ROCm AMD GPU on Windows. All model processing is done through Vulkan.
 5. **Auto Shutdown**: The gradio interface should be displaying the, System RAM and Graphics VRAM, load, this is used by the program to ensure that the CPU/GPU is not over-loaded, if the load hits over "maximum_memory_usage" percent, on either then it will automatically unload all models, to prevent a crash, the user must then, close applications or choose smaller models. 
 6. **Real-time Config**: Via clicking on a settings button, the user is able to change useful settings for the program, such as, models choice for, AI-CHAT, AI-INST, AI-CODE, and also, the "maximum_memory_usage" percent through a slider.
-7. **Standalone Installer**: Standalone Installer Tool (main_install.py). Users install, requirements and llama.cpp, through this to ".\libraries" subdirectories.
+7. **Standalone Installer**: Standalone Installer Tool. Users install, requirements and llama.cpp, through this to ".\libraries" subdirectories.
  
 ### Preview:
 - This is a purely conceptual blueprint, at this stage.
@@ -125,13 +125,13 @@ Selection; Choose Options = 1-2, Exit Config = X:
 ### Instructions:
 - Releases are considered non-working, but here are the early instructions...
 1. Ensure you are on Windows, and are not using Wsl to run python, unless you know some other method of emulating windows python.
-2. Plan your model usage optimally. Go to, AMD Adrenalin settings or Open Hardware Monitor or in Windows 11, you should calculate how much free ram you will have, for, individual models on the VRam and all 3 model files in Ram.
+2. Plan your model usage optimally. In Windows 11 you can see Ram/VRam usage in Task Manager, doing this in other versions requires Adrenalin>Settings>Monitoring. You should calculate how much free ram you will have, for, individual models on the VRam and all 3 model files in Ram (it will not require extra on top for Ram, its just stored for faster loading).
 3. You should ensure that, for example, if you have 7GB free, then you would want models that are ~5-6GB in size. 
 2. Ensure you have Installed the requirements detailed above, for, C++ Build Tools and Python.
 3. Download [Qwen-Agent Framework](https://github.com/QwenLM/Qwen-Agent) into a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files directly to that folder.
-4. Drop in my scripts for QwenAgent-Interface directly into "Qwen-Agent-0.0.5+" preserving file structure, and relevantly over-writing the "requirements.txt".
-5. Install remaining, requirements and libraries, through "QwenAgent-Configure.Bat", and setup the model used and tweak max memory if you feel the need.
-6. Run "QwenAgent-Launcher.Bat" to start the session. 
+4. Download and extract my project to some non-system folder, for examle "D:\Programs\GradioCppQwenAgi v#.##".
+5. Install remaining, requirements and libraries, through "GradioCppQwenAgi-Installer.Bat".
+6. Run "GradioCppQwenAgi-Launcher.Bat" to start the session. 
 
 ### Notes:
 - Go to AMD Adrenalin settings, Performance>Metrics>Tracking>GPU Memory>(o), then on left is GPU Ram usage.
