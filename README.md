@@ -125,11 +125,10 @@ Selection; Choose Options = 1-2, Exit Config = X:
 ### Instructions:
 - Releases are considered non-working, but here are the early instructions...
 1. Ensure you are on Windows, and are not using Wsl to run python, unless you know some other method of emulating windows python.
-2. Plan your model usage optimally. In Windows 11 you can see Ram/VRam usage in Task Manager, doing this in other versions requires Adrenalin>Settings>Monitoring. You should calculate how much free ram you will have, for, individual models on the VRam and all 3 model files in Ram (it will not require extra on top for Ram, its just stored for faster loading).
-3. You should ensure that, for example, if you have 7GB free, then you would want models that are ~5-6GB in size. 
+2. Plan your model usage optimally. In Windows 11 you can see Ram/VRam usage in Task Manager, doing this in other versions use Adrenalin Control Panel. You should calculate how much free ram you will have, for, individual models on the VRam and all 3 model files in Ram (no requirement for additional Ram, its just stored there).
+3. You should ensure that, for example, if you have 7GB free VRam, then you would want models that are individually ~5-6GB in size (it always needs a little extra). 
 2. Ensure you have Installed the requirements detailed above, for, C++ Build Tools and Python.
-3. Download [Qwen-Agent Framework](https://github.com/QwenLM/Qwen-Agent) into a folder in a suitable location for example "Qwen-Agent-0.0.5+", copy/clone the files directly to that folder.
-4. Download and extract my project to some non-system folder, for examle "D:\Programs\GradioCppQwenAgi v#.##".
+4. Download and extract my project to some non-system folder, for examle "D:\Programs\GradioCppQwenAgi_v#_##".
 5. Install remaining, requirements and libraries, through "GradioCppQwenAgi-Installer.Bat".
 6. Run "GradioCppQwenAgi-Launcher.Bat" to start the session. 
 
