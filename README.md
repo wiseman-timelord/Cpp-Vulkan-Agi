@@ -1,4 +1,4 @@
-# QwenVulkanAgi
+# QwenCppVulkanAgi
 Project Status: Alpha; under development. Developing offline, when there is a release, then there will be part working alpha with gradio interface working. It does not work yet....
 
 ### Current Work
