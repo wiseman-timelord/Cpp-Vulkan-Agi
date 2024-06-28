@@ -1,5 +1,5 @@
 # QwenVulkanAgi
-Project Status: Alpha; under development. Developing offline. It does not work yet....
+Project Status: Alpha; under development. Developing offline, when there is a release, then there will be part working alpha with gradio interface working. It does not work yet....
 
 ### Current Work
 - New script ".\data\config_temporary.py" for all global variables. Rename ".\data\config_general.json" to ".\data\config_persistent.json" in all files.  
