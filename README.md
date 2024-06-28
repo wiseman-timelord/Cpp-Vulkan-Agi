@@ -141,6 +141,6 @@ Selection; Choose Options = 1-2, Exit Config = X:
 - Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
 
 ## Credits:
-- The producers of...Llama.cpp, Vulkan, Auto-GPT, Auto-LLM, Qwen-Agent, llama-cpp-agent, Qwen2 series language models...inspire my projects.
+- The producers of...Llama.cpp, Vulkan, Auto-GPT, Auto-LLM, Qwen-Agent, llama-cpp-agent, Qwen2 series language models...inspired my project.
 
 
