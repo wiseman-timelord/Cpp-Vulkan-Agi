@@ -1,9 +1,12 @@
-# GradioCppQwenAgi
+# QwenVulkanAgi
 Project Status: Alpha; under development. Developing offline. It does not work yet....
 
 ### Current Work
-1. Make independent of Qwen-Agent Framework. Until this is done, there will be no further upload. Basically bugfixing becomes a nightmare for all the stuff I am not using in the framework, and the limited context of GPT4.
-- Work before making independent of Qwen-Agent Framework was... 
+- New script ".\data\config_temporary.py" for all global variables. Rename ".\data\config_general.json" to ".\data\config_persistent.json" in all files.  
+- Get Gradio interface working correctly, this will rely on new globals and ensuring models do not load at start, and wait for user to click "Load All Models And Start". 
+- create some kind of prompt matrix in ".\scripts\model_interact.py", optimally coded, so as for all common required logical prompts are produced to the correctly relating models, in order to carry out common tasks, this may include using the tools, or processing responses/output from tools. in order for tasks to be able to be accomplished. This will require deep analysis of currently implemented functions, and their relations, so as, to come up with the optimal configuration and operation.
+- Determine missing elements, find interesting code, determine the optimal implementations, expand upon tools, then integrate those tools including updating promptings.
+- Work Backlog is... 
 1. ...
 - check out the new blueprint for the interface below, try to use only 3 cases for the models roles, and make them more general, this will save on many characters, and may actually work. we should save some chracters from implementing the 3 personalities of AI. 
 - given the example of the flow of responses, ensure there is some kind of simulated interaction between the AI-Agents during normal operation in the logical proceedings of projects, presented to the user on the interface in the applicable AI-Personalities log panel. This should also require a logical enumeration of workflows for given projects, for example, creating/updating/bugfixing a program, finding out something by researching on the internet, operating system updates. We want to cover all common tasks one is able to do through only text based models. you must enumerate themes of projects and relating interactions and what tasts these projects would contain, and each task will have a theme of AI-Personality, ie AI-CHAT or AI-INST or AI-CODE, they should be assigned to. Projects must be worked through logically. Current Task details and Remaining Tasks and project details, should all each be displayed in their own individual panel. The main thing is to produce the desired results in the backend, while providing a little bit of detail on the frontend so the user knows whats going on roughly in a very-concise short sentence format, typically simply stating actions started/completed. This will require dynamic printed text for each situation relating to the current, options and tools, made, available and aware.
@@ -23,7 +26,7 @@ Project Status: Alpha; under development. Developing offline. It does not work y
 - New name Possibly, QAgent-CppAgi, QwenAgent-CppCore, ??
 
 ## Description:
-- Currently a project to produce, a, Gradio and LlamaCpp, based Agi, capable of, planning and executing, text/code based projects, to completion, for all that would be useful or interesting. Utilizing the best solutions I can find from research, etc. Unfortunately it turned out the AMD on windows is still limited even with DirectML because it requires ROCm, however, as it turns out, there are Vulkan versions of llama.cpp, I have done stuff with llama.cpp before, and there are now other projects where people have done Agi with Llama.cpp.
+- Currently a project to produce, a, Gradio and LlamaCpp, based Agi, capable of, planning and executing, text/code based projects, to completion. Utilizing the best solutions I can find from research, etc. There are Vulkan versions of llama.cpp, I have done stuff with llama.cpp before, and there are now other projects where people have done Agi with Llama.cpp.
 
 ### Features:
 1. **Main Script Execution**: Initialization and Launch, reads configuration, and launches the program/gradio interface, the display is then the gradio interface with immediate options for, Settings, Load all Models, Exit Program.
@@ -119,7 +122,6 @@ Selection; Choose Options = 1-2, Exit Config = X:
 - Python, Developed on [Python 3.12.x](https://www.python.org/downloads/release/python-3120/?ref=upstract.com) Non-WSL, untested on others.
 - [Windows 10/11](https://www.ebay.co.uk/b/bn_2683753), but its developed on Windows 10.
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with "Desktop development with C++" installed, so pip can install things like `pyamdgpuinfo`.
-- [Qwen-Agent Framework](https://github.com/QwenLM/Qwen-Agent), without dropping my files into that, they wont work.
 - [Requirements.txt](https://github.com/wiseman-timelord/QwenAgent-Interface/blob/main/requirements.txt), mostly from the framework, are installed by the configurator.
 - Other libraries, such as [llama.cpp pre-compiled binaries](https://github.com/ggerganov/llama.cpp/releases), are installed by the configurator.
 
@@ -139,6 +141,6 @@ Selection; Choose Options = 1-2, Exit Config = X:
 - Developed for and testing on, Matisse CPU with 64GB for 57B models and 8GB Artic Islands GPU for 7b models .
 
 ## Credits:
-- The producers of...Llama.cpp, Vulkan, Qwen-Agent Framework, Qwen2 series language models...make my project possible.
+- The producers of...Llama.cpp, Vulkan, Auto-GPT, Qwen-Agent, Qwen2 series language models...make my project possible.
 
 
