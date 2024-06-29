@@ -39,60 +39,9 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 7. **Standalone Installer**: Standalone Installer Tool. Users install, requirements and llama.cpp, through this to ".\libraries" subdirectories.
  
 ### Preview:
-- This is a purely conceptual blueprint, at this stage.
+- Heres how the interface is shaping up...
 ![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/interface_main.jpg)
 
-
-```
-=============== QAgent-CppAgi ===================
-=================================================
-HUMANOID:
--------------------------------------------------
-Log;
-I want you to update the files for the interface
-we are using.
-Please do X to the Y script, then produce relating
-required updates for the other relevant code, then
-save the file.
-When you are done shutdown the interface.
--------------------------------------------------
-Input;
-...
-=================================================
-=================================================
-AI-CHAT:
--------------------------------------------------
-Hello Humanoid, what is it specifically we are doing to the interface of QAgent-CppAgi?
-Hmm interesting idea, however this is not completely covered by my training data, and will require, research and a plan and an assessment of the files.
-Produced a web-research, data from C is too large, it must be consolidated first. 
-Ordering AI-INST to assemble the data. 
-New Input, project interrupted, assessing Input.
-Noted, after the script is checked and saved as a file, then I will ensure to shutdown appropriately.
-Continuing with project: do X to the Y script.
-Assessing Data, the research stated B.
-Ordering AI-CODE to produce the updates.
-Project completed successfully.
-Unloading all loaded models.
-Shutting down interface in 10 seconds.
-=================================================
-=================================================
-AI-INST:
--------------------------------------------------
-New order from AI-CHAT, getting on with order.
-Data Assembled, as instructed.
-Data Passed on to AI-CHAT.
-Functions replaced in script and file saved.
-Passing complete script to AI-CODE.
-=================================================
-=================================================
-AI-CODE:
--------------------------------------------------
-Analyzing Current Code and relevant information.
-Analyzing current code and producing updates.
-Updates passed on to AI-INST.
-Script checked for errors, and passed.
-=================================================
-```
 - Standalone Configurator, for pre-launch setup...
 ```
 
