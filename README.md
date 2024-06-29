@@ -2,7 +2,7 @@
 Project Status: Alpha; under development. Developing offline, when there is a release, then there will be part working alpha with gradio interface working. It does not work yet....
 
 ### Current Work
-- New script ".\data\config_temporary.py" for all global variables. Rename ".\data\config_general.json" to ".\data\config_persistent.json" in all files.  
+- New script ".\data\config_temporary.py" for all global variables and significant variables used between scripts, and ".\data\config_persistent.json" for persistent keys. Ensure all scripts are making use of the 2 config files optimally, in all scripts provided (limited context).   
 - Get Gradio interface working correctly, this will rely on new globals and ensuring models do not load at start, and wait for user to click "Load All Models And Start". 
 - create some kind of prompt matrix in ".\scripts\model_interact.py", optimally coded, so as for all common required logical prompts are produced to the correctly relating models, in order to carry out common tasks, this may include using the tools, or processing responses/output from tools. in order for tasks to be able to be accomplished. This will require deep analysis of currently implemented functions, and their relations, so as, to come up with the optimal configuration and operation.
 - Determine missing elements, find interesting code, determine the optimal implementations, expand upon tools, then integrate those tools including updating promptings.
