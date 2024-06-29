@@ -40,6 +40,9 @@ Project Status: Alpha; under development. Developing offline, when there is a re
  
 ### Preview:
 - This is a purely conceptual blueprint, at this stage.
+![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/interface_main.jpg)
+
+
 ```
 =============== QAgent-CppAgi ===================
 =================================================
