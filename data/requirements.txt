@@ -1,0 +1,8 @@
+psutil
+vulkan
+llama-cpp
+gradio
+json5
+pydantic
+requests
+jupyter-client
