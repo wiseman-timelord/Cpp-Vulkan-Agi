@@ -41,28 +41,28 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 
 - Standalone Installer for, `requirements.txt` and llama.cpp...
 ```
-
-========================( Setup-Installer )=======================
-
+========================( Batch Launcher )=======================
 
 
 
 
 
 
-                     1. Install Requirements
-                (pip install -r requirements.txt)
-
-                   2. Install GitHub Libraries
-                        (Llama.Cpp: b3206)
 
 
+                      1. Run Main Program
+
+                     2. Run Installer Tool
 
 
 
 
------------------------------------------------------------------
-Selection; Choose Options = 1-2, Exit Config = X:
+
+
+
+
+----------------------------------------------------------------
+Select; Options = 1-2, Exit = X:
 
 ```
 
