@@ -11,7 +11,7 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 - Determine if all the code is implemented correctly, go over examples.
 - pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further, and at the same correct any errors.
-2. Bugfix scripts to a bug free version that can startup and shutdown.
+2. Bugfix scripts to a bug free version that can startup and shutdown. Release will be produced at this stage.
 3. Complete Gradio Interface, does it work with win 10 python 3.12, what can we expect, what are possibilities.
 4. investigave correct operation through gradio interface, ensuare all features working correctly.
 5. Improve and Expand...
