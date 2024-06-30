@@ -50,7 +50,7 @@ def install_requirements():
     print("\nInstalling requirements...\n")
     command = [
         "pip", "install", 
-        "--requirement", ".\\requirements.txt",
+        "--requirement", ".\\data\\requirements.txt",
         "--retries", "5",
         "--timeout", "15",
         "--no-cache-dir",
