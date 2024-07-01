@@ -38,7 +38,6 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 ![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/models_page.jpg)
 - Heres how the Memory Page is shaping up...
 ![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/settings_menu.jpg)
-
 - Standalone Installer for, `requirements.txt` and llama.cpp...
 ```
 ========================( Batch Launcher )=======================
