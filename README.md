@@ -1,5 +1,5 @@
 # Cpp-Vulkan-Agi
-Project Status: Alpha; under development. Developing offline, when there is a release, then there will be part working alpha with gradio interface working. It does not work yet....
+Project Status: Alpha; under development. Developing offline, when there is functional beta. It does not work yet....
 
 ### Project Plan
 1. The current work is...
@@ -66,7 +66,7 @@ Select; Options = 1-2, Exit = X:
 ```
 
 ## Requirements:
-- Vulkan compatible Graphics Card with 8GB+, a graphics card with enough vram to individually load the models you choose (there is no gpu selection, so I advise, solid color desktop and shut down media intensive apps).
+- Vulkan compatible Graphics Card with VRam in proportion to the maximum individual size of the 3 models, for example 7B for 8GB cards.
 - System Memory 32GB+, or enough system memory to store all 3 of the 7b models you choose AT THE SAME TIME, for fast-load on-demand.
 - Python, Developed on [Python 3.12.x](https://www.python.org/downloads/release/python-3120/?ref=upstract.com) Non-WSL, untested on others.
 - [Windows 10/11](https://www.ebay.co.uk/b/bn_2683753), but its developed on Windows 10.
