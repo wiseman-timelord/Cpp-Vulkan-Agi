@@ -15,8 +15,6 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 3. Improve and Expand...
 - Option to just use 1 (typically large) model for all purposes, and offload layers onto gpu, then rest in system ram. find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
 - Allow the user to specify non-qwen models, covering llama 3 based moels as well as qwen. Pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
-
-
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
 - a youtube demonstration video, to gain interest and guide people.
 - New name Possibly, QAgent-CppAgi, QwenAgent-CppCore, ??
@@ -36,8 +34,11 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 ### Preview:
 - Heres how the Main Page is shaping up...
 ![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/interface_main.jpg)
+- Heres how the Models Page is shaping up...
+![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/models_page.jpg)
 - Heres how the Memory Page is shaping up...
 ![Alternative text](https://github.com/wiseman-timelord/QwenCppVulkanAgi/blob/main/media/settings_menu.jpg)
+
 - Standalone Installer for, `requirements.txt` and llama.cpp...
 ```
 ========================( Batch Launcher )=======================
