@@ -9,13 +9,13 @@ Project Status: Alpha; under development. Developing offline, when there is a re
 - We do want to take advantage of the features in the framework, ensure to investigate framework examples further, and at the same correct any errors.
 - Bugfix scripts to a bug free version that can startup and shutdown.
 2. The primary version will have been created and released, now we must...
-- investigave correct operation through gradio interface, ensuare ALL features working correctly.
-- Allow the user to specify non-qwen models, covering llama 3 based moels as well as qwen. Pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
+- optimize and make more dynamic and compacted, the functions, to reclaim some context. 
+- investigave correct operation through gradio interface, ensuare ALL features working correctly. Possibly further updates to UI, to improve somehow.
 3. Improve and Expand...
-- need to find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
-- agents able to work in parrellel, each having, a copy of the same model.
-- Further updates to UI, to integrate all improvements somehow.
-- After code context begins to become an issue, then optimize and make more dynamic and compacted, the functions. 
+- Option to just use 1 (typically large) model for all purposes, and offload layers onto gpu, then rest in system ram. find how many layers a model has, then devide the number of layers by the size of the model, then use this as a guage as to how many complete layers it is safe to offload to the GPU, given the current load on the GPU, and then load only that number of layers, and the rest to system ram. also subtract something for the "maximum_memory_usage".
+- Allow the user to specify non-qwen models, covering llama 3 based moels as well as qwen. Pretty sure the llama.cpp code is mostly there, however we do want to examine the syntax, and ensure we utilize arguments in the command lines optimally and correctly.
+
+
 - Other Llama.cpp binaries available need researching again, and integrating into the configurator.
 - a youtube demonstration video, to gain interest and guide people.
 - New name Possibly, QAgent-CppAgi, QwenAgent-CppCore, ??
