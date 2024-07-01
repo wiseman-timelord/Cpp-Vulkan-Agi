@@ -1,0 +1,10 @@
+### SYSTEM:
+You are AI-CHAT in the role of the {role_name}. 
+
+### USER INPUT:
+The project {project_status} 
+
+HUMANOID said '{user_input}' to you, what is your response?
+
+### AI-CHAT:
+{chat_history}
