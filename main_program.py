@@ -2,14 +2,14 @@
 
 import os
 import logging
-from scripts.utility_misc import handle_config, check_model_paths
+from scripts.utilities_misc import handle_config, check_model_paths
 from scripts.gradio_interface import launch_gradio_interface
 import data.configure_temporary as config_temp
 
 # Initialize logger
 logger = logging.getLogger(__name__)
 handler = logging.StreamHandler()
-handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+handler.setFormatter(logging.Formatter('%(message)s'))
 logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 
@@ -30,9 +30,7 @@ def main():
     config_temp.code_model = config.get("code_model_used")
     config_temp.max_memory_usage = config.get("maximum_memory_usage")
 
-    if not check_model_paths([config_temp.chat_model, config_temp.instruct_model, config_temp.code_model]):
-        logger.error("Model path check failed.")
-        return
+    check_model_paths([config_temp.chat_model, config_temp.instruct_model, config_temp.code_model], config_path)
 
     try:
         launch_gradio_interface()

@@ -1,7 +1,7 @@
-# .\scripts\model_interact.py - for interaction with the models.
+# .\scripts\model_interact.py
 
 import subprocess
-from scripts.utility_misc import monitor_resources, manage_models_in_gpu, manage_models_in_ram
+from scripts.utilities_misc import monitor_resources, manage_models_in_gpu, manage_models_in_ram
 import data.configure_temporary as config_temp
 
 def run_llama_cli(cpp_binary_path, model_path, prompt=None, max_memory_usage=None, use_gpu=True):

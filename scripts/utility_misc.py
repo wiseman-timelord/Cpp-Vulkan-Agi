@@ -1,14 +1,11 @@
-# .\scripts\utility_misc.py
+# .\scripts\utilities_misc.py
 
-import os
-import mmap
-import json
-import psutil
-import ctypes
-import gc
-import subprocess
+import os, mmap, json, psutil, ctypes, gc, subprocess, time, random
 import vulkan as vk
 from llama_cpp import Llama
+import logging  # Ensure logging is imported
+
+logger = logging.getLogger(__name__)
 
 def get_vulkan_instance():
     try:
@@ -26,14 +23,13 @@ def get_vulkan_instance():
             pApplicationInfo=app_info,
         )
 
-        instance = vk.vkCreateInstance(create_info, None)
-        return instance
+        return vk.vkCreateInstance(create_info, None)
     except Exception as e:
         logger.error(f"Failed to create Vulkan instance: {e}")
         raise
 
 def get_logical_device(instance, physical_device):
-    queue_family_index = 0  # Example index, determine the appropriate queue family index for your case
+    queue_family_index = 0  # Example index, determine queue family index
     device_queue_create_info = vk.VkDeviceQueueCreateInfo(
         sType=vk.VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO,
         queueFamilyIndex=queue_family_index,
@@ -47,24 +43,20 @@ def get_logical_device(instance, physical_device):
         pQueueCreateInfos=[device_queue_create_info],
     )
 
-    device = vk.vkCreateDevice(physical_device, device_create_info, None)
-    return device
+    return vk.vkCreateDevice(physical_device, device_create_info, None)
 
 def get_physical_device(instance):
-    physical_devices = vk.vkEnumeratePhysicalDevices(instance)
-    return physical_devices[0]
+    return vk.vkEnumeratePhysicalDevices(instance)[0]
 
 def get_vram_usage(instance, physical_device, device):
     memory_properties = vk.vkGetPhysicalDeviceMemoryProperties(physical_device)
     memory_heaps = memory_properties.memoryHeaps
     total_vram = sum(heap.size for heap in memory_heaps if heap.flags & vk.VK_MEMORY_HEAP_DEVICE_LOCAL_BIT)
-    memory_type_index = None
-    for i, memory_type in enumerate(memory_properties.memoryTypes):
-        if memory_type.propertyFlags & vk.VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT:
-            memory_type_index = i
-            break
+    memory_type_index = next(
+        (i for i, mt in enumerate(memory_properties.memoryTypes) if mt.propertyFlags & vk.VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT), None)
     if memory_type_index is None:
         raise RuntimeError("No suitable memory type.")
+
     allocate_info = vk.VkMemoryAllocateInfo(
         sType=vk.VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
         allocationSize=1024 * 1024,  # Example allocation size, adjust as needed
@@ -73,28 +65,21 @@ def get_vram_usage(instance, physical_device, device):
     device_memory = vk.vkAllocateMemory(device, allocate_info, None)
     committed_memory = vk.vkGetDeviceMemoryCommitment(device, device_memory)
     vk.vkFreeMemory(device, device_memory, None)
-    used_vram = (committed_memory / total_vram) * 100
-
-    return used_vram
+    return (committed_memory / total_vram) * 100
 
 def monitor_vram_usage(instance, physical_device, device, max_memory_usage):
     used_vram = get_vram_usage(instance, physical_device, device)
-    if used_vram > max_memory_usage:
-        return False, used_vram
-    return True, used_vram
+    return (used_vram <= max_memory_usage), used_vram
 
 def monitor_resources(max_memory_usage, use_gpu=True):
     if use_gpu:
         instance = get_vulkan_instance()
         physical_device = get_physical_device(instance)
         device = get_logical_device(instance, physical_device)
-        success, usage = monitor_vram_usage(instance, physical_device, device, max_memory_usage)
+        return monitor_vram_usage(instance, physical_device, device, max_memory_usage)
     else:
         mem = psutil.virtual_memory()
-        usage = mem.percent
-        success = usage <= max_memory_usage
-
-    return success, usage
+        return (mem.percent <= max_memory_usage), mem.percent
 
 def manage_models_in_gpu(model_path=None, unload=False, max_memory_usage=None):
     if unload:
@@ -102,7 +87,7 @@ def manage_models_in_gpu(model_path=None, unload=False, max_memory_usage=None):
             if model_path:
                 del model_path
                 gc.collect()
-            print(f"Model unloaded from GPU")
+            print("Model unloaded from GPU")
         except Exception as e:
             logger.error(f"GPU unload failed: {e}")
         return
@@ -119,7 +104,7 @@ def manage_models_in_gpu(model_path=None, unload=False, max_memory_usage=None):
             return False
         
         model = Llama(model_path=model_path, n_gpu_layers=40)
-        print(f"Model loaded to GPU")
+        print("Model loaded to GPU")
         return True
     except Exception as e:
         logger.error(f"GPU load failed: {e}")
@@ -142,9 +127,7 @@ def check_model_paths(model_paths, config_path):
     config = handle_config("load", config_path)
 
     for idx, path in enumerate(model_paths):
-        print(f"Checking path: {path}")
         if not os.path.exists(path):
-            print(f"Path not found: {path}")
             if idx == 0:
                 config_temp.chat_model = ""
                 config["chat_model_used"] = ""
@@ -158,7 +141,6 @@ def check_model_paths(model_paths, config_path):
 
     if config_updated:
         handle_config("save", config_path, config)
-
 
 def manage_models_in_ram(model_paths, unload=False):
     models = []

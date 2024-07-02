@@ -1,24 +1,21 @@
-# Script: .\scripts\gradio_interface.py
+# .\scripts\gradio_interface.py
 
-# Imports
 import gradio as gr
 import webbrowser
 from threading import Timer
 import os
 import sys
 import logging
-from scripts.utility_misc import (
-    handle_config, manage_models_in_ram, monitor_resources,
-    get_vulkan_instance, get_physical_device, get_logical_device
-)
+from scripts.utilities_misc import handle_config, manage_models_in_ram, monitor_resources, get_vulkan_instance, get_physical_device, get_logical_device
 from scripts.model_interact import generate_response
 import data.configure_temporary as config_temp
+import scripts.prompt_matrix as prompt_matrix
 import psutil  # Import psutil to handle memory usage
 
 # Initialize logger
 logger = logging.getLogger(__name__)
 handler = logging.StreamHandler()
-handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+handler.setFormatter(logging.Formatter('%(message)s'))
 logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 
@@ -38,10 +35,17 @@ def setup_gradio_interface():
         config = handle_config('load', './data/configure_persistent.json')
 
         def update_chat(user_input, chat_history):
+            task_details = {
+                "roles": "Chat and User Interaction",
+                "description": user_input,
+                "instructions": "Provide a helpful and concise response."
+            }
+            prompt = prompt_matrix.generate_dynamic_prompt("AI-CHAT", "chatting", task_details)
+            
             response = generate_response(
                 "./libraries/llama-bin-win-vulkan-x64/llama-cli.exe",
                 config_temp.chat_model,
-                user_input,
+                prompt,
                 chat_history,
                 config_temp.max_memory_usage,
                 use_gpu=True
@@ -84,10 +88,10 @@ def setup_gradio_interface():
             return file.name
 
         def get_project_plan():
-            return config_temp.current_project_plan
+            return config_temp.project_planner["current_project_plan"]
 
         def get_current_task():
-            return config_temp.current_task_assigned
+            return config_temp.project_planner["current_task_assigned"]
 
         def update_memory_bars(progress=gr.Progress()):
             total_sram = psutil.virtual_memory().total / (1024 ** 3)  # Convert bytes to GB

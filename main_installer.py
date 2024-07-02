@@ -102,7 +102,7 @@ def install_github_libraries():
         os.makedirs(dest, exist_ok=True)
         try:
             download_and_extract(url, dest)
-            # Ensure the extracted folder is renamed correctly
+            # Rename extracted folder
             extracted_dir = f".\\libraries\\llama-{LLAMA_VERSION}-bin-win-{suffix}\\"
             if os.path.exists(extracted_dir):
                 shutil.move(extracted_dir, dest)
